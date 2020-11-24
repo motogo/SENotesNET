@@ -89,6 +89,9 @@ namespace SENotesNET
             };
             table.Columns.Add(column);
 
+
+
+
             // Create second column.
             column = new DataColumn
             {
@@ -107,6 +110,17 @@ namespace SENotesNET
                 ColumnName = "colInterpret",
                 AutoIncrement = false,
                 Caption = "Interpret",
+                ReadOnly = true,
+                Unique = false
+            };
+            table.Columns.Add(column);
+
+            column = new DataColumn
+            {
+                DataType = System.Type.GetType("System.String"),
+                ColumnName = "colGroup",
+                AutoIncrement = false,
+                Caption = "Group",
                 ReadOnly = true,
                 Unique = false
             };
@@ -207,13 +221,14 @@ namespace SENotesNET
             GetInterpretData();
             GetVarianteData();
             GetOriginData();
+            GetGroupData();
 
             DataSet ds = new DataSet();
             
             DataTable dtab = MakeParentTable();
             ds.Tables.Add(dtab);
             
-            var data = (string.IsNullOrEmpty(txtFilterSongName.Text) && string.IsNullOrEmpty(txtFilterInterpret.Text)) ? db.DisplayPresetData(PfadClass.Instance().DatabasePfad, ckSortRating.Checked) : db.DisplayFilteredData(txtFilterSongName.Text, txtFilterInterpret.Text, PfadClass.Instance().DatabasePfad);
+            var data = (string.IsNullOrEmpty(txtFilterSongName.Text) && string.IsNullOrEmpty(cbInterpretFilter.Text) && string.IsNullOrEmpty(cbGroupFilter.Text) ) ? db.DisplayPresetData(PfadClass.Instance().DatabasePfad, ckSortRating.Checked) : db.DisplayFilteredData(txtFilterSongName.Text, cbInterpretFilter.Text,cbGroupFilter.Text, PfadClass.Instance().DatabasePfad);
             foreach (var dt in data)
             {
                 DataRow row = dtab.NewRow();
@@ -226,6 +241,7 @@ namespace SENotesNET
                 row["colVariant"] = dt.Variant;
                 row["colInstrument"] = dt.Instrument;
                 row["colOrigin"] = dt.Origin;
+                row["colGroup"] = dt.Group;
                 row["colRating"] = dt.Rating;
                 row["colData"] = dt;
                 try
@@ -251,6 +267,7 @@ namespace SENotesNET
             dgvSongs.Columns["colVariant"].HeaderText = "Variante";
             dgvSongs.Columns["colInstrument"].HeaderText = "Instrument";
             dgvSongs.Columns["colOrigin"].HeaderText             = "Origin";
+            dgvSongs.Columns["colGroup"].HeaderText = "Group";
             dgvSongs.Columns["colRating"].HeaderText = "Rating";
             dgvSongs.Columns["colData"].HeaderText = "Data";
 
@@ -291,6 +308,8 @@ namespace SENotesNET
             cbInterpret.SelectedIndex   = -1;
             cbVariante.Text             = string.Empty;
             cbVariante.SelectedIndex    = -1;
+            cbGroup.Text = string.Empty;
+            cbGroup.SelectedIndex = -1;
             cbOrigin.Text             = string.Empty;
             cbOrigin.SelectedIndex    = -1;
             cbInstrument.Text           = string.Empty;
@@ -324,7 +343,8 @@ namespace SENotesNET
                 cbInterpret.Text            = ActData.Interpret;
                 cbVariante.Text             = ActData.Variant;
                 cbInstrument.Text           = ActData.Instrument;
-                cbOrigin.Text             = ActData.Origin;
+                cbOrigin.Text               = ActData.Origin;
+                cbGroup.Text                = ActData.Group;
                 txtRating.Text              = ActData.Rating.ToString();
                 txtMetronomsSpeed.Text      = ActData.MetronomSpeed.ToString();
                 txtSheetWidth.Text          = ActData.NotesAtt.PicWidth.ToString();
@@ -350,12 +370,13 @@ namespace SENotesNET
         public void EditToData()
         {
             if (ActData == null) ActData = new Notes();
-            ActData.SongName    = txtSongName.Text;
-            ActData.Interpret   = cbInterpret.Text;
+            ActData.SongName   = txtSongName.Text;
+            ActData.Interpret  = cbInterpret.Text;
             ActData.Variant    = cbVariante.Text;
-            ActData.Instrument  = cbInstrument.Text;
-            ActData.Origin    = cbOrigin.Text;
-            ActData.Stamp       = DateTime.Now;
+            ActData.Instrument = cbInstrument.Text;
+            ActData.Origin     = cbOrigin.Text;
+            ActData.Group      = cbGroup.Text;
+            ActData.Stamp      = DateTime.Now;
             ActData.Rating                      = StaticFunctionsClass.ToIntDef(txtRating.Text,  DefaultAttributes.DefaultRating);
             ActData.MetronomSpeed               = StaticFunctionsClass.ToIntDef(txtMetronomsSpeed.Text, DefaultAttributes.DefaultMetronomsSpeed);
             ActData.NotesAtt.PicWidth           = StaticFunctionsClass.ToDecimalDef(txtSheetWidth.Text, DefaultAttributes.DefaultPicWidth);
@@ -481,6 +502,38 @@ namespace SENotesNET
               cbVariante.Items.Add(inst.Variant);
             }
         }
+
+        private void GetGroupData()
+        {
+       
+            cbGroup.Items.Clear();
+       
+            DBGroupsClass DBGroups = new DBGroupsClass();
+            var instr = DBGroups.GetAll();
+            var i = DBVariantsClass.Sort_List("Ascending", "Group", instr);
+            foreach (var inst in i)
+            {
+                cbGroup.Items.Add(inst.Group);
+  
+            }
+          
+        }
+        private void GetGroupFilterData()
+        {
+            int ginx = cbGroupFilter.SelectedIndex;
+            
+            cbGroupFilter.Items.Clear();
+            DBGroupsClass DBGroups = new DBGroupsClass();
+            var instr = DBGroups.GetAll();
+            var i = DBVariantsClass.Sort_List("Ascending", "Group", instr);
+            foreach (var inst in i)
+            {
+                cbGroupFilter.Items.Add(inst.Group);
+            }
+            cbGroupFilter.SelectedIndex = ginx;
+        }
+
+
         private void GetOriginData()
         {
             cbOrigin.Items.Clear();
@@ -505,6 +558,20 @@ namespace SENotesNET
             {
               cbInterpret.Items.Add(inst.Interpret);
             }
+        }
+
+        private void GetInterpretFilterData()
+        {
+            int ginx = cbInterpretFilter.SelectedIndex;
+            cbInterpretFilter.Items.Clear();
+            var DB = new DBInterpretsClass();
+            var instr = DB.GetAll();
+            var i = DBInterpretsClass.Sort_List("Ascending", "Interpret", instr);
+            foreach (var inst in i)
+            {
+                cbInterpretFilter.Items.Add(inst.Interpret);
+            }
+            cbInterpretFilter.SelectedIndex = ginx;
         }
         private void InsertInstrumentData()
         {
@@ -551,6 +618,22 @@ namespace SENotesNET
                 DBHerkunfte.DBInsert(data);
             }
         }
+
+        private void InsertGroupsData()
+        {
+            if (string.IsNullOrEmpty(cbOrigin.Text)) return;
+            DBGroupsClass DBHerkunfte = new DBGroupsClass();
+            Groups instr = DBHerkunfte.GetFirst(cbGroup.Text);
+            if (string.IsNullOrEmpty(instr.Group))
+            {
+                Groups data = new Groups
+                {
+                    Group = cbGroup.Text,
+                    Stamp = DateTime.Now
+                };
+                DBHerkunfte.DBInsert(data);
+            }
+        }
         private void InsertInterpretData()
         {
             if (string.IsNullOrEmpty(cbInterpret.Text)) return;
@@ -586,6 +669,19 @@ namespace SENotesNET
                 DB.DBDelete(instr);
             }
         }
+
+        private void DeleteGroupsData()
+        {
+            if (string.IsNullOrEmpty(cbGroup.Text)) return;
+            var DB = new DBGroupsClass();
+            Groups instr = DB.GetFirst(cbGroup.Text);
+            if (!string.IsNullOrEmpty(instr.Group))
+            {
+                DB.DBDelete(instr);
+            }
+        }
+
+
         private void DeleteOriginData()
         {
             if (string.IsNullOrEmpty(cbOrigin.Text)) return;
@@ -654,10 +750,6 @@ namespace SENotesNET
         }
 
 
-        private void DeleteSong()
-        {
-            DBSaveState = eDBSaveState.delete;
-        }
         private void NewSong()
         {
             DBSaveState = eDBSaveState.insert;
@@ -683,9 +775,7 @@ namespace SENotesNET
         {
             hsSaveNewIndex.Enabled = true;
         }
-        private void btnUpdate_click(object sender, EventArgs e)
-        {
-        }
+ 
         private void UpdateSong()
         {
             if (DBSaveState == eDBSaveState.insert)
@@ -702,15 +792,7 @@ namespace SENotesNET
                 bs.Position = pos;
             }
         }
-        
-        private void showNotes_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-        }
+
         private void AddFile()
         {
             var fd = new OpenFileDialog();
@@ -771,6 +853,8 @@ namespace SENotesNET
             hsRemoveFile.Enabled = false;
             ckSortRating.Checked = true;
             UpdateUI();
+            GetInterpretFilterData();
+            GetGroupFilterData();
             RefreshData();
             dgvSongs.Select();
         }
@@ -1113,7 +1197,7 @@ namespace SENotesNET
                 }
             }
         }
-        private void txtSongName_TextChanged(object sender, EventArgs e)
+        private void dataChanged(object sender, EventArgs e)
         {
             DataChanged();
         }
@@ -1147,37 +1231,9 @@ namespace SENotesNET
                                 (lvFileList.Items.Count > 0);
         }
 
-        private void txtSheetWidth_TextChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-
-        private void txtSheetHeight_TextChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-
-        private void txtPageStep_TextChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-        private void txtPageShowCount_TextChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-
-        private void txtRating_TextChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ShowNotes();
-        }
-        public static Rectangle GetCellBounds(DataGridViewCellPaintingEventArgs e)
-        {
-            return new Rectangle(e.CellBounds.X - 1, e.CellBounds.Y - 1, e.CellBounds.Width, e.CellBounds.Height + 1);
         }
 
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
@@ -1212,11 +1268,7 @@ namespace SENotesNET
             }
         }
 
-        private void txtMetronomsSpeed_TextChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-
+ 
         private void ckSortRating_CheckedChanged(object sender, EventArgs e)
         {
             RefreshData();
@@ -1257,8 +1309,9 @@ namespace SENotesNET
         {
             int pos = bs.Position;
             int scrollpos = dgvSongs.FirstDisplayedScrollingRowIndex;
-            txtFilterInterpret.Text = string.Empty;
-            txtFilterSongName.Text = string.Empty;
+            cbInterpretFilter.Text  = string.Empty;
+            cbGroupFilter.Text      = string.Empty;
+            txtFilterSongName.Text  = string.Empty;
             RefreshData();
             dgvSongs.FirstDisplayedScrollingRowIndex = scrollpos;
             bs.Position = pos;
@@ -1338,39 +1391,53 @@ namespace SENotesNET
             GetOriginData();
         }
 
-        private void cbInterpret_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-
-        private void cbInstrument_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-
-        private void cbVariante_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-
-        private void cbOrigin_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-
-        private void txtAutoStepTime_TextChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-
-        private void level_checkedChanged(object sender, EventArgs e)
-        {
-            DataChanged();
-        }
-
         private void dgvSongs_SelectionChanged(object sender, EventArgs e)
         {
             hsUpdateSong.Enabled = false;
+        }
+
+        private void hsInsertGroup_Click(object sender, EventArgs e)
+        {
+            InsertGroupsData();
+            GetGroupData();
+        }
+
+        private void hsDeleteGroup_Click(object sender, EventArgs e)
+        {
+            DeleteGroupsData();
+            GetGroupData();
+        }
+
+        private void cbGroupFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+            dgvSongs.Select();
+        }
+
+        private void cbGroupFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                RefreshData();
+                dgvSongs.Select();
+            }
+        }
+
+        private void cbInterpretFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+                RefreshData();
+                dgvSongs.Select();
+            
+        }
+
+        private void cbInterpretFilter_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                RefreshData();
+                dgvSongs.Select();
+            }
         }
     }
 }

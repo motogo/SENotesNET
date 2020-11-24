@@ -229,6 +229,7 @@ namespace SENotesNET
         public NotesAttributes NotesAtt { get; set; }
         public int Rating { get; set; }
         public int MetronomSpeed { get; set; }
+        public string Group { get; set; }
         public override string ToString()
         {
             return $@"{SongName} {Stamp.ToLongDateString()} {Stamp.ToLongTimeString()}";
@@ -253,6 +254,16 @@ namespace SENotesNET
         public Guid Id { get; set; }
         public DateTime Stamp { get; set; }
         public string Variant { get; set; }
+    }
+
+    public class Groups
+    {
+        public Groups()
+        {
+        }
+        public Guid Id { get; set; }
+        public DateTime Stamp { get; set; }
+        public string Group { get; set; }
     }
 
     public class Origins
@@ -415,7 +426,7 @@ namespace SENotesNET
                 db.Rebuild();
             }
         }
-        private List<Notes> GetFilter(string songname, string interpret)
+        private List<Notes> GetFilter(string songname, string interpret, string group)
         {
             var list = new List<Notes>();
             using (var db = new LiteDatabase(DatabasePath))
@@ -439,6 +450,13 @@ namespace SENotesNET
                 else if (!string.IsNullOrEmpty(interpret))
                 {
                     foreach (Notes _id in col.Find(x => x.Interpret.ToUpper().Contains(interpret.ToUpper())))
+                    {
+                        list.Add(_id);
+                    }
+                }
+                else if (!string.IsNullOrEmpty(group))
+                {
+                    foreach (Notes _id in col.Find(x => x.Group.ToUpper().Contains(group.ToUpper())))
                     {
                         list.Add(_id);
                     }
@@ -495,10 +513,10 @@ namespace SENotesNET
                 DBInsert2(data, databasePath, false, imagefilelist);
             }
         }
-        public List<Notes> DisplayFilteredData(string songname, string interpret, string databasePath)
+        public List<Notes> DisplayFilteredData(string songname, string interpret,string group, string databasePath)
         {
             this.DatabasePath = databasePath;
-            return GetFilter(songname,interpret);
+            return GetFilter(songname,interpret,group);
         }
         public Notes DisplayFirstPresetData()
         {
@@ -1175,6 +1193,173 @@ namespace SENotesNET
         }
     }
 
+    class DBGroupsClass : DBBasicClass
+    {
+        string AttributesSchema = "groupdata";
+        public List<Groups> GetByID(Guid key)
+        {
+            var list = new List<Groups>();
+            using (var db = new LiteDatabase(DatabasePath))
+            {
+                var col = db.GetCollection<Groups>(AttributesSchema);
+                foreach (Groups _id in col.Find(x => x.Id == key))
+                {
+                    list.Add(_id);
+                }
+            }
+            return list;
+        }
+        public List<Groups> GetAll()
+        {
+            var list = new List<Groups>();
+            using (var db = new LiteDatabase(DatabasePath))
+            {
+                var col = db.GetCollection<Groups>(AttributesSchema);
+                foreach (Groups _id in col.FindAll())
+                {
+                    list.Add(_id);
+                }
+            }
+            return list;
+        }
+
+        public Groups GetFirst(string key)
+        {
+            var list = new Groups();
+            using (var db = new LiteDatabase(DatabasePath))
+            {
+                var col = db.GetCollection<Groups>(AttributesSchema);
+                if (string.IsNullOrEmpty(key))
+                {
+                    foreach (Groups _id in col.FindAll())
+                    {
+                        list = _id;
+                    }
+                }
+                else
+                {
+                    foreach (Groups _id in col.Find(x => x.Group == key))
+                    {
+                        list = _id;
+                    }
+                }
+            }
+            return list;
+        }
+
+
+        public void CopyDB(string databasePath)
+        {
+            List<Groups> source = GetAll();
+            foreach (Groups data in source)
+            {
+                if (data.Id.ToString().Contains("0000-0000"))
+                {
+                    continue;
+                }
+                bool ok = DBInsert(data, databasePath, false);
+                nf.AddToINFO($@"Copy Varianten:{data.Group}->{ok}");
+            }
+        }
+
+        public bool DBInsert(Groups datas)
+        {
+            return DBInsert(datas, this.DatabasePath, true);
+        }
+
+        public bool DBInsert(Groups datas, string databasePath, bool newID)
+        {
+            string connectionStr = databasePath;
+            try
+            {
+                using (var db = new LiteDatabase(connectionStr))
+                {
+                    // Get customer collection
+                    var notes = db.GetCollection<Groups>(AttributesSchema);
+
+                    notes.EnsureIndex(x => x.Group);
+                    notes.EnsureIndex(x => x.Stamp);
+
+                    if (newID) datas.Id = Guid.NewGuid();
+                    BsonValue bv = notes.Insert(datas);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                nf.AddToERROR($@"Insert variant {datas.Group} {ex.Message}");
+            }
+            return false;
+        }
+
+        public bool DBDelete(Groups datas)
+        {
+            string connectionStr = DatabasePath;
+            try
+            {
+                using (var db = new LiteDatabase(connectionStr))
+                {
+                    // Get customer collection
+                    var notes = db.GetCollection<Groups>(AttributesSchema);
+
+                    notes.Delete(datas.Id);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                nf.AddToERROR($@"Delete variant {datas.Group} {ex.Message}");
+            }
+            return false;
+        }
+
+        public bool DBUpdate(Groups datas)
+        {
+            var lf = Application.StartupPath;
+            string connectionStr = DatabasePath;
+            using (var db = new LiteDatabase(connectionStr))
+            {
+                var notes = db.GetCollection<Groups>(AttributesSchema);
+                notes.EnsureIndex(x => x.Group);
+                notes.EnsureIndex(x => x.Stamp);
+                try
+                {
+                    notes.Update(datas);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    nf.AddToERROR($@"Update variant {datas.Group} {ex.Message}");
+                }
+                return false;
+            }
+        }
+        public static object GetDynamicSortProperty(object item, string propName)
+        {
+            //Use reflection to get order type
+            return item.GetType().GetProperty(propName).GetValue(item, null);
+        }
+        public static List<T> Sort_List<T>(string sortDirection, string sortExpression, List<T> data)
+        {
+            List<T> data_sorted = new List<T>();
+            if (sortDirection == "Ascending")
+            {
+                data_sorted = (from n in data
+                               orderby GetDynamicSortProperty(n, sortExpression) ascending
+                               select n).ToList();
+            }
+            else if (sortDirection == "Descending")
+            {
+                data_sorted = (from n in data
+                               orderby GetDynamicSortProperty(n, sortExpression) descending
+                               select n).ToList();
+
+            }
+            return data_sorted;
+        }
+    }
     class DBOriginClass : DBBasicClass
     {
         string AttributesSchema = "originsdata";

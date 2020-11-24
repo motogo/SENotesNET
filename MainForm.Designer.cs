@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.cmsSongs = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiAddNewSong = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDeleteSong = new System.Windows.Forms.ToolStripMenuItem();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.gbSongName = new System.Windows.Forms.GroupBox();
             this.txtSongName = new System.Windows.Forms.TextBox();
@@ -42,15 +44,32 @@
             this.Changed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FileType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmsSongFiles = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiReloadFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiExecuteMusicFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiExportMuseScore2PDF = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiExportMuseScore2MP3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiSetFileTypeSongfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSetFileTypeMuseScore = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSetFilePDFfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSetFileText = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSetFileMP3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiSongFilesUp = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSongFileDown = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlEditFiles = new System.Windows.Forms.Panel();
-            this.pnlFillistUpper = new System.Windows.Forms.Panel();
+            this.hsRemoveFile = new SeControlsLib.HotSpot();
             this.gbSortIndex = new System.Windows.Forms.GroupBox();
+            this.hsSaveNewIndex = new SeControlsLib.HotSpot();
             this.txtSortIndex = new System.Windows.Forms.TextBox();
+            this.hsAddSongFile = new SeControlsLib.HotSpot();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pnlEditSongLower = new System.Windows.Forms.Panel();
+            this.gbGroup = new System.Windows.Forms.GroupBox();
+            this.cbGroup = new System.Windows.Forms.ComboBox();
+            this.hsDeleteGroup = new SeControlsLib.HotSpot();
+            this.hsInsertGroup = new SeControlsLib.HotSpot();
             this.gbOtherAttributes = new System.Windows.Forms.GroupBox();
             this.lblMetronomSpeed = new System.Windows.Forms.Label();
             this.txtMetronomsSpeed = new System.Windows.Forms.TextBox();
@@ -58,8 +77,12 @@
             this.txtRating = new System.Windows.Forms.TextBox();
             this.gbOrigin = new System.Windows.Forms.GroupBox();
             this.cbOrigin = new System.Windows.Forms.ComboBox();
+            this.hsDeleteOrigin = new SeControlsLib.HotSpot();
+            this.hsInsertOrigin = new SeControlsLib.HotSpot();
             this.gbVariante = new System.Windows.Forms.GroupBox();
             this.cbVariante = new System.Windows.Forms.ComboBox();
+            this.hsDeleteVariant = new SeControlsLib.HotSpot();
+            this.hsInsertVariant = new SeControlsLib.HotSpot();
             this.gbSheetAttributes = new System.Windows.Forms.GroupBox();
             this.txtAutoStepTime = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -73,6 +96,8 @@
             this.lblSheetWidth = new System.Windows.Forms.Label();
             this.gbInstrument = new System.Windows.Forms.GroupBox();
             this.cbInstrument = new System.Windows.Forms.ComboBox();
+            this.hsDeleteInstrument = new SeControlsLib.HotSpot();
+            this.hsInsertInstrument = new SeControlsLib.HotSpot();
             this.gbClassification = new System.Windows.Forms.GroupBox();
             this.rbProfessional = new System.Windows.Forms.RadioButton();
             this.rbBeginners = new System.Windows.Forms.RadioButton();
@@ -83,62 +108,42 @@
             this.rbExperimantal = new System.Windows.Forms.RadioButton();
             this.gbInterpret = new System.Windows.Forms.GroupBox();
             this.cbInterpret = new System.Windows.Forms.ComboBox();
+            this.hsDeleteInterpret = new SeControlsLib.HotSpot();
+            this.hsSaveInterpret = new SeControlsLib.HotSpot();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.hsNewSong = new SeControlsLib.HotSpot();
+            this.hsUpdateSong = new SeControlsLib.HotSpot();
             this.gbSongGrid = new System.Windows.Forms.GroupBox();
             this.dgvSongs = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.hsRefresh = new SeControlsLib.HotSpot();
+            this.hsClearRefresh = new SeControlsLib.HotSpot();
             this.gbFilterSongName = new System.Windows.Forms.GroupBox();
             this.txtFilterSongName = new System.Windows.Forms.TextBox();
-            this.gbFilterInterpret = new System.Windows.Forms.GroupBox();
-            this.txtFilterInterpret = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbInterpretFilter = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbGroupFilter = new System.Windows.Forms.ComboBox();
             this.ckSortRating = new System.Windows.Forms.CheckBox();
             this.upperPanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.ofdDB = new System.Windows.Forms.OpenFileDialog();
-            this.hsDeleteOrigin = new SeControlsLib.HotSpot();
-            this.hsInsertOrigin = new SeControlsLib.HotSpot();
-            this.hsDeleteVariant = new SeControlsLib.HotSpot();
-            this.hsInsertVariant = new SeControlsLib.HotSpot();
-            this.hsDeleteInstrument = new SeControlsLib.HotSpot();
-            this.hsInsertInstrument = new SeControlsLib.HotSpot();
-            this.hsDeleteInterpret = new SeControlsLib.HotSpot();
-            this.hsSaveInterpret = new SeControlsLib.HotSpot();
-            this.tsmiReloadFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiExecuteMusicFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiExportMuseScore2PDF = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiExportMuseScore2MP3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSetFileTypeSongfile = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSetFileTypeMuseScore = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSetFilePDFfile = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSetFileText = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSetFileMP3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSongFilesUp = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSongFileDown = new System.Windows.Forms.ToolStripMenuItem();
-            this.hsRemoveFile = new SeControlsLib.HotSpot();
-            this.hsSaveNewIndex = new SeControlsLib.HotSpot();
-            this.hsAddSongFile = new SeControlsLib.HotSpot();
-            this.hsNewSong = new SeControlsLib.HotSpot();
-            this.hsUpdateSong = new SeControlsLib.HotSpot();
-            this.tsmiAddNewSong = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiDeleteSong = new System.Windows.Forms.ToolStripMenuItem();
-            this.hsRefresh = new SeControlsLib.HotSpot();
-            this.hsClearRefresh = new SeControlsLib.HotSpot();
             this.hsClose = new SeControlsLib.HotSpot();
             this.hsShowNotes = new SeControlsLib.HotSpot();
             this.hsMaintain = new SeControlsLib.HotSpot();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.ofdDB = new System.Windows.Forms.OpenFileDialog();
             this.cmsSongs.SuspendLayout();
             this.gbSongName.SuspendLayout();
             this.gbFileList.SuspendLayout();
             this.cmsSongFiles.SuspendLayout();
-            this.pnlFillistUpper.SuspendLayout();
             this.gbSortIndex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.pnlEditSongLower.SuspendLayout();
+            this.gbGroup.SuspendLayout();
             this.gbOtherAttributes.SuspendLayout();
             this.gbOrigin.SuspendLayout();
             this.gbVariante.SuspendLayout();
@@ -151,7 +156,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSongs)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.gbFilterSongName.SuspendLayout();
-            this.gbFilterInterpret.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.upperPanel.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -164,6 +170,20 @@
             this.cmsSongs.Name = "contextMenuStrip1";
             this.cmsSongs.Size = new System.Drawing.Size(152, 48);
             this.cmsSongs.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip2_ItemClicked);
+            // 
+            // tsmiAddNewSong
+            // 
+            this.tsmiAddNewSong.Image = ((System.Drawing.Image)(resources.GetObject("tsmiAddNewSong.Image")));
+            this.tsmiAddNewSong.Name = "tsmiAddNewSong";
+            this.tsmiAddNewSong.Size = new System.Drawing.Size(151, 22);
+            this.tsmiAddNewSong.Text = "Add new Song";
+            // 
+            // tsmiDeleteSong
+            // 
+            this.tsmiDeleteSong.Image = ((System.Drawing.Image)(resources.GetObject("tsmiDeleteSong.Image")));
+            this.tsmiDeleteSong.Name = "tsmiDeleteSong";
+            this.tsmiDeleteSong.Size = new System.Drawing.Size(151, 22);
+            this.tsmiDeleteSong.Text = "Delete Song";
             // 
             // imageList1
             // 
@@ -199,18 +219,16 @@
             this.txtSongName.Name = "txtSongName";
             this.txtSongName.Size = new System.Drawing.Size(231, 20);
             this.txtSongName.TabIndex = 0;
-            this.txtSongName.Text = "txtSongName";
-            this.txtSongName.TextChanged += new System.EventHandler(this.txtSongName_TextChanged);
+            this.txtSongName.TextChanged += new System.EventHandler(this.dataChanged);
             // 
             // gbFileList
             // 
             this.gbFileList.Controls.Add(this.lvFileList);
             this.gbFileList.Controls.Add(this.pnlEditFiles);
-            this.gbFileList.Controls.Add(this.pnlFillistUpper);
             this.gbFileList.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbFileList.Location = new System.Drawing.Point(0, 45);
             this.gbFileList.Name = "gbFileList";
-            this.gbFileList.Size = new System.Drawing.Size(676, 307);
+            this.gbFileList.Size = new System.Drawing.Size(807, 278);
             this.gbFileList.TabIndex = 5;
             this.gbFileList.TabStop = false;
             this.gbFileList.Text = "Filelist";
@@ -227,9 +245,9 @@
             this.lvFileList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvFileList.FullRowSelect = true;
             this.lvFileList.HideSelection = false;
-            this.lvFileList.Location = new System.Drawing.Point(3, 73);
+            this.lvFileList.Location = new System.Drawing.Point(3, 26);
             this.lvFileList.Name = "lvFileList";
-            this.lvFileList.Size = new System.Drawing.Size(670, 231);
+            this.lvFileList.Size = new System.Drawing.Size(801, 249);
             this.lvFileList.TabIndex = 0;
             this.lvFileList.UseCompatibleStateImageBehavior = false;
             this.lvFileList.View = System.Windows.Forms.View.Details;
@@ -287,50 +305,217 @@
             this.cmsSongFiles.Size = new System.Drawing.Size(208, 264);
             this.cmsSongFiles.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
+            // tsmiReloadFile
+            // 
+            this.tsmiReloadFile.Image = ((System.Drawing.Image)(resources.GetObject("tsmiReloadFile.Image")));
+            this.tsmiReloadFile.Name = "tsmiReloadFile";
+            this.tsmiReloadFile.Size = new System.Drawing.Size(207, 22);
+            this.tsmiReloadFile.Text = "Reload file";
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(204, 6);
+            // 
+            // tsmiExecuteMusicFile
+            // 
+            this.tsmiExecuteMusicFile.Image = ((System.Drawing.Image)(resources.GetObject("tsmiExecuteMusicFile.Image")));
+            this.tsmiExecuteMusicFile.Name = "tsmiExecuteMusicFile";
+            this.tsmiExecuteMusicFile.Size = new System.Drawing.Size(207, 22);
+            this.tsmiExecuteMusicFile.Text = "Execute";
+            // 
+            // tsmiExportMuseScore2PDF
+            // 
+            this.tsmiExportMuseScore2PDF.Image = ((System.Drawing.Image)(resources.GetObject("tsmiExportMuseScore2PDF.Image")));
+            this.tsmiExportMuseScore2PDF.Name = "tsmiExportMuseScore2PDF";
+            this.tsmiExportMuseScore2PDF.Size = new System.Drawing.Size(207, 22);
+            this.tsmiExportMuseScore2PDF.Text = "Export MuseScore to PDF";
+            // 
+            // tsmiExportMuseScore2MP3
+            // 
+            this.tsmiExportMuseScore2MP3.Image = ((System.Drawing.Image)(resources.GetObject("tsmiExportMuseScore2MP3.Image")));
+            this.tsmiExportMuseScore2MP3.Name = "tsmiExportMuseScore2MP3";
+            this.tsmiExportMuseScore2MP3.Size = new System.Drawing.Size(207, 22);
+            this.tsmiExportMuseScore2MP3.Text = "Export to MP3";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(204, 6);
             // 
+            // tsmiSetFileTypeSongfile
+            // 
+            this.tsmiSetFileTypeSongfile.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSetFileTypeSongfile.Image")));
+            this.tsmiSetFileTypeSongfile.Name = "tsmiSetFileTypeSongfile";
+            this.tsmiSetFileTypeSongfile.Size = new System.Drawing.Size(207, 22);
+            this.tsmiSetFileTypeSongfile.Text = "Set to Songfile";
+            // 
+            // tsmiSetFileTypeMuseScore
+            // 
+            this.tsmiSetFileTypeMuseScore.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSetFileTypeMuseScore.Image")));
+            this.tsmiSetFileTypeMuseScore.Name = "tsmiSetFileTypeMuseScore";
+            this.tsmiSetFileTypeMuseScore.Size = new System.Drawing.Size(207, 22);
+            this.tsmiSetFileTypeMuseScore.Text = "Set to MuseScore";
+            // 
+            // tsmiSetFilePDFfile
+            // 
+            this.tsmiSetFilePDFfile.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSetFilePDFfile.Image")));
+            this.tsmiSetFilePDFfile.Name = "tsmiSetFilePDFfile";
+            this.tsmiSetFilePDFfile.Size = new System.Drawing.Size(207, 22);
+            this.tsmiSetFilePDFfile.Text = "Set to PDF File";
+            // 
+            // tsmiSetFileText
+            // 
+            this.tsmiSetFileText.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSetFileText.Image")));
+            this.tsmiSetFileText.Name = "tsmiSetFileText";
+            this.tsmiSetFileText.Size = new System.Drawing.Size(207, 22);
+            this.tsmiSetFileText.Text = "Set to Info Text";
+            // 
+            // tsmiSetFileMP3
+            // 
+            this.tsmiSetFileMP3.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSetFileMP3.Image")));
+            this.tsmiSetFileMP3.Name = "tsmiSetFileMP3";
+            this.tsmiSetFileMP3.Size = new System.Drawing.Size(207, 22);
+            this.tsmiSetFileMP3.Text = "Set to MP3 Audio";
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(204, 6);
             // 
+            // tsmiSongFilesUp
+            // 
+            this.tsmiSongFilesUp.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSongFilesUp.Image")));
+            this.tsmiSongFilesUp.Name = "tsmiSongFilesUp";
+            this.tsmiSongFilesUp.Size = new System.Drawing.Size(207, 22);
+            this.tsmiSongFilesUp.Text = "Up";
+            // 
+            // tsmiSongFileDown
+            // 
+            this.tsmiSongFileDown.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSongFileDown.Image")));
+            this.tsmiSongFileDown.Name = "tsmiSongFileDown";
+            this.tsmiSongFileDown.Size = new System.Drawing.Size(207, 22);
+            this.tsmiSongFileDown.Text = "Down";
+            // 
             // pnlEditFiles
             // 
             this.pnlEditFiles.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlEditFiles.Location = new System.Drawing.Point(3, 63);
+            this.pnlEditFiles.Location = new System.Drawing.Point(3, 16);
             this.pnlEditFiles.Name = "pnlEditFiles";
-            this.pnlEditFiles.Size = new System.Drawing.Size(670, 10);
+            this.pnlEditFiles.Size = new System.Drawing.Size(801, 10);
             this.pnlEditFiles.TabIndex = 2;
             // 
-            // pnlFillistUpper
+            // hsRemoveFile
             // 
-            this.pnlFillistUpper.Controls.Add(this.hsRemoveFile);
-            this.pnlFillistUpper.Controls.Add(this.gbSortIndex);
-            this.pnlFillistUpper.Controls.Add(this.hsAddSongFile);
-            this.pnlFillistUpper.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlFillistUpper.Location = new System.Drawing.Point(3, 16);
-            this.pnlFillistUpper.Name = "pnlFillistUpper";
-            this.pnlFillistUpper.Size = new System.Drawing.Size(670, 47);
-            this.pnlFillistUpper.TabIndex = 1;
+            this.hsRemoveFile.BackColor = System.Drawing.Color.Transparent;
+            this.hsRemoveFile.BackColorHover = System.Drawing.Color.Transparent;
+            this.hsRemoveFile.BorderColorHover = System.Drawing.Color.Transparent;
+            this.hsRemoveFile.ContextMenuEdges = SeControlsLib.Edge.Center;
+            this.hsRemoveFile.ContextMenuXDirection = SeControlsLib.XDirection.Right;
+            this.hsRemoveFile.ContextMenuYDirection = SeControlsLib.YDirection.Down;
+            this.hsRemoveFile.DefaultButtonMode = SeControlsLib.BtnMode.Context;
+            this.hsRemoveFile.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.hsRemoveFile.FlatAppearance.BorderSize = 0;
+            this.hsRemoveFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hsRemoveFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hsRemoveFile.HoverStyle = SeControlsLib.frameStyle.none;
+            this.hsRemoveFile.Image = global::SENotesNET.Properties.Resources.minus_rt24x;
+            this.hsRemoveFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hsRemoveFile.ImageHover = global::SENotesNET.Properties.Resources.minus_blue24x;
+            this.hsRemoveFile.ImageToggleOnSelect = false;
+            this.hsRemoveFile.Location = new System.Drawing.Point(291, 3);
+            this.hsRemoveFile.Marked = false;
+            this.hsRemoveFile.MarkedColor = System.Drawing.Color.Teal;
+            this.hsRemoveFile.MarkedStyle = SeControlsLib.frameStyle.filled;
+            this.hsRemoveFile.MarkedText = "";
+            this.hsRemoveFile.MarkMode = false;
+            this.hsRemoveFile.Name = "hsRemoveFile";
+            this.hsRemoveFile.NonMarkedText = "";
+            this.hsRemoveFile.Shortcut = BasicClassLibrary.Shortcut.None;
+            this.hsRemoveFile.ShowShortcut = false;
+            this.hsRemoveFile.Size = new System.Drawing.Size(100, 36);
+            this.hsRemoveFile.TabIndex = 14;
+            this.hsRemoveFile.Text = "Remove file";
+            this.hsRemoveFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hsRemoveFile.ToolTipActive = false;
+            this.hsRemoveFile.ToolTipAutomaticDelay = 500;
+            this.hsRemoveFile.ToolTipAutoPopDelay = 5000;
+            this.hsRemoveFile.ToolTipBackColor = System.Drawing.SystemColors.Info;
+            this.hsRemoveFile.ToolTipFont = new System.Drawing.Font("Comic Sans MS", 9F);
+            this.hsRemoveFile.ToolTipFor4ContextMenu = true;
+            this.hsRemoveFile.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
+            this.hsRemoveFile.ToolTipInitialDelay = 500;
+            this.hsRemoveFile.ToolTipIsBallon = false;
+            this.hsRemoveFile.ToolTipOwnerDraw = false;
+            this.hsRemoveFile.ToolTipReshowDelay = 100;
+            this.hsRemoveFile.ToolTipShowAlways = false;
+            this.hsRemoveFile.ToolTipText = "";
+            this.hsRemoveFile.ToolTipTextColor = System.Drawing.SystemColors.InfoText;
+            this.hsRemoveFile.ToolTipTitle = "";
+            this.hsRemoveFile.ToolTipTitleColor = System.Drawing.Color.Blue;
+            this.hsRemoveFile.UseVisualStyleBackColor = false;
+            this.hsRemoveFile.Click += new System.EventHandler(this.hsRemoveFile_Click);
             // 
             // gbSortIndex
             // 
             this.gbSortIndex.Controls.Add(this.hsSaveNewIndex);
             this.gbSortIndex.Controls.Add(this.txtSortIndex);
-            this.gbSortIndex.Location = new System.Drawing.Point(273, 2);
+            this.gbSortIndex.Location = new System.Drawing.Point(397, 3);
             this.gbSortIndex.Name = "gbSortIndex";
             this.gbSortIndex.Size = new System.Drawing.Size(107, 42);
             this.gbSortIndex.TabIndex = 4;
             this.gbSortIndex.TabStop = false;
             this.gbSortIndex.Text = "Sort Index";
+            // 
+            // hsSaveNewIndex
+            // 
+            this.hsSaveNewIndex.BackColor = System.Drawing.Color.Transparent;
+            this.hsSaveNewIndex.BackColorHover = System.Drawing.Color.Transparent;
+            this.hsSaveNewIndex.BorderColorHover = System.Drawing.Color.Transparent;
+            this.hsSaveNewIndex.ContextMenuEdges = SeControlsLib.Edge.Center;
+            this.hsSaveNewIndex.ContextMenuXDirection = SeControlsLib.XDirection.Right;
+            this.hsSaveNewIndex.ContextMenuYDirection = SeControlsLib.YDirection.Down;
+            this.hsSaveNewIndex.DefaultButtonMode = SeControlsLib.BtnMode.Context;
+            this.hsSaveNewIndex.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.hsSaveNewIndex.FlatAppearance.BorderSize = 0;
+            this.hsSaveNewIndex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hsSaveNewIndex.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hsSaveNewIndex.HoverStyle = SeControlsLib.frameStyle.none;
+            this.hsSaveNewIndex.Image = global::SENotesNET.Properties.Resources.ok_gn_24x;
+            this.hsSaveNewIndex.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hsSaveNewIndex.ImageHover = global::SENotesNET.Properties.Resources.ok_blue_24x;
+            this.hsSaveNewIndex.ImageToggleOnSelect = false;
+            this.hsSaveNewIndex.Location = new System.Drawing.Point(70, 16);
+            this.hsSaveNewIndex.Marked = false;
+            this.hsSaveNewIndex.MarkedColor = System.Drawing.Color.Teal;
+            this.hsSaveNewIndex.MarkedStyle = SeControlsLib.frameStyle.filled;
+            this.hsSaveNewIndex.MarkedText = "";
+            this.hsSaveNewIndex.MarkMode = false;
+            this.hsSaveNewIndex.Name = "hsSaveNewIndex";
+            this.hsSaveNewIndex.NonMarkedText = "";
+            this.hsSaveNewIndex.Shortcut = BasicClassLibrary.Shortcut.None;
+            this.hsSaveNewIndex.ShowShortcut = false;
+            this.hsSaveNewIndex.Size = new System.Drawing.Size(30, 21);
+            this.hsSaveNewIndex.TabIndex = 15;
+            this.hsSaveNewIndex.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hsSaveNewIndex.ToolTipActive = false;
+            this.hsSaveNewIndex.ToolTipAutomaticDelay = 500;
+            this.hsSaveNewIndex.ToolTipAutoPopDelay = 5000;
+            this.hsSaveNewIndex.ToolTipBackColor = System.Drawing.SystemColors.Info;
+            this.hsSaveNewIndex.ToolTipFont = new System.Drawing.Font("Comic Sans MS", 9F);
+            this.hsSaveNewIndex.ToolTipFor4ContextMenu = true;
+            this.hsSaveNewIndex.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
+            this.hsSaveNewIndex.ToolTipInitialDelay = 500;
+            this.hsSaveNewIndex.ToolTipIsBallon = false;
+            this.hsSaveNewIndex.ToolTipOwnerDraw = false;
+            this.hsSaveNewIndex.ToolTipReshowDelay = 100;
+            this.hsSaveNewIndex.ToolTipShowAlways = false;
+            this.hsSaveNewIndex.ToolTipText = "";
+            this.hsSaveNewIndex.ToolTipTextColor = System.Drawing.SystemColors.InfoText;
+            this.hsSaveNewIndex.ToolTipTitle = "";
+            this.hsSaveNewIndex.ToolTipTitleColor = System.Drawing.Color.Blue;
+            this.hsSaveNewIndex.UseVisualStyleBackColor = false;
+            this.hsSaveNewIndex.Click += new System.EventHandler(this.hsSaveNewIndex_Click);
             // 
             // txtSortIndex
             // 
@@ -340,6 +525,57 @@
             this.txtSortIndex.Size = new System.Drawing.Size(61, 20);
             this.txtSortIndex.TabIndex = 0;
             this.txtSortIndex.TextChanged += new System.EventHandler(this.txtSortIndex_TextChanged);
+            // 
+            // hsAddSongFile
+            // 
+            this.hsAddSongFile.BackColor = System.Drawing.Color.Transparent;
+            this.hsAddSongFile.BackColorHover = System.Drawing.Color.Transparent;
+            this.hsAddSongFile.BorderColorHover = System.Drawing.Color.Transparent;
+            this.hsAddSongFile.ContextMenuEdges = SeControlsLib.Edge.Center;
+            this.hsAddSongFile.ContextMenuXDirection = SeControlsLib.XDirection.Right;
+            this.hsAddSongFile.ContextMenuYDirection = SeControlsLib.YDirection.Down;
+            this.hsAddSongFile.DefaultButtonMode = SeControlsLib.BtnMode.Context;
+            this.hsAddSongFile.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.hsAddSongFile.FlatAppearance.BorderSize = 0;
+            this.hsAddSongFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hsAddSongFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hsAddSongFile.HoverStyle = SeControlsLib.frameStyle.none;
+            this.hsAddSongFile.Image = global::SENotesNET.Properties.Resources.plus_gn_24x;
+            this.hsAddSongFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hsAddSongFile.ImageHover = global::SENotesNET.Properties.Resources.plus_blue_24x;
+            this.hsAddSongFile.ImageToggleOnSelect = false;
+            this.hsAddSongFile.Location = new System.Drawing.Point(197, 3);
+            this.hsAddSongFile.Marked = false;
+            this.hsAddSongFile.MarkedColor = System.Drawing.Color.Teal;
+            this.hsAddSongFile.MarkedStyle = SeControlsLib.frameStyle.filled;
+            this.hsAddSongFile.MarkedText = "";
+            this.hsAddSongFile.MarkMode = false;
+            this.hsAddSongFile.Name = "hsAddSongFile";
+            this.hsAddSongFile.NonMarkedText = "";
+            this.hsAddSongFile.Shortcut = BasicClassLibrary.Shortcut.None;
+            this.hsAddSongFile.ShowShortcut = false;
+            this.hsAddSongFile.Size = new System.Drawing.Size(88, 37);
+            this.hsAddSongFile.TabIndex = 13;
+            this.hsAddSongFile.Text = "Add file";
+            this.hsAddSongFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hsAddSongFile.ToolTipActive = false;
+            this.hsAddSongFile.ToolTipAutomaticDelay = 500;
+            this.hsAddSongFile.ToolTipAutoPopDelay = 5000;
+            this.hsAddSongFile.ToolTipBackColor = System.Drawing.SystemColors.Info;
+            this.hsAddSongFile.ToolTipFont = new System.Drawing.Font("Comic Sans MS", 9F);
+            this.hsAddSongFile.ToolTipFor4ContextMenu = true;
+            this.hsAddSongFile.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
+            this.hsAddSongFile.ToolTipInitialDelay = 500;
+            this.hsAddSongFile.ToolTipIsBallon = false;
+            this.hsAddSongFile.ToolTipOwnerDraw = false;
+            this.hsAddSongFile.ToolTipReshowDelay = 100;
+            this.hsAddSongFile.ToolTipShowAlways = false;
+            this.hsAddSongFile.ToolTipText = "";
+            this.hsAddSongFile.ToolTipTextColor = System.Drawing.SystemColors.InfoText;
+            this.hsAddSongFile.ToolTipTitle = "";
+            this.hsAddSongFile.ToolTipTitleColor = System.Drawing.Color.Blue;
+            this.hsAddSongFile.UseVisualStyleBackColor = false;
+            this.hsAddSongFile.Click += new System.EventHandler(this.hsNewSong_Click);
             // 
             // splitContainer1
             // 
@@ -357,13 +593,14 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gbSongGrid);
             this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer1.Size = new System.Drawing.Size(1550, 906);
-            this.splitContainer1.SplitterDistance = 676;
+            this.splitContainer1.Size = new System.Drawing.Size(1852, 774);
+            this.splitContainer1.SplitterDistance = 807;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 7;
             // 
             // pnlEditSongLower
             // 
+            this.pnlEditSongLower.Controls.Add(this.gbGroup);
             this.pnlEditSongLower.Controls.Add(this.gbOtherAttributes);
             this.pnlEditSongLower.Controls.Add(this.gbOrigin);
             this.pnlEditSongLower.Controls.Add(this.gbVariante);
@@ -373,10 +610,137 @@
             this.pnlEditSongLower.Controls.Add(this.gbClassification);
             this.pnlEditSongLower.Controls.Add(this.gbInterpret);
             this.pnlEditSongLower.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlEditSongLower.Location = new System.Drawing.Point(0, 352);
+            this.pnlEditSongLower.Location = new System.Drawing.Point(0, 323);
             this.pnlEditSongLower.Name = "pnlEditSongLower";
-            this.pnlEditSongLower.Size = new System.Drawing.Size(676, 299);
+            this.pnlEditSongLower.Size = new System.Drawing.Size(807, 309);
             this.pnlEditSongLower.TabIndex = 7;
+            // 
+            // gbGroup
+            // 
+            this.gbGroup.Controls.Add(this.cbGroup);
+            this.gbGroup.Controls.Add(this.hsDeleteGroup);
+            this.gbGroup.Controls.Add(this.hsInsertGroup);
+            this.gbGroup.Location = new System.Drawing.Point(9, 251);
+            this.gbGroup.Name = "gbGroup";
+            this.gbGroup.Size = new System.Drawing.Size(237, 41);
+            this.gbGroup.TabIndex = 11;
+            this.gbGroup.TabStop = false;
+            this.gbGroup.Text = "Group";
+            // 
+            // cbGroup
+            // 
+            this.cbGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbGroup.FormattingEnabled = true;
+            this.cbGroup.Items.AddRange(new object[] {
+            "Akkordeon",
+            "Piano",
+            "Harp"});
+            this.cbGroup.Location = new System.Drawing.Point(3, 16);
+            this.cbGroup.Name = "cbGroup";
+            this.cbGroup.Size = new System.Drawing.Size(183, 21);
+            this.cbGroup.TabIndex = 8;
+            this.cbGroup.SelectedIndexChanged += new System.EventHandler(this.dataChanged);
+            this.cbGroup.TextChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // hsDeleteGroup
+            // 
+            this.hsDeleteGroup.BackColor = System.Drawing.Color.Transparent;
+            this.hsDeleteGroup.BackColorHover = System.Drawing.Color.Transparent;
+            this.hsDeleteGroup.BorderColorHover = System.Drawing.Color.Transparent;
+            this.hsDeleteGroup.ContextMenuEdges = SeControlsLib.Edge.Center;
+            this.hsDeleteGroup.ContextMenuXDirection = SeControlsLib.XDirection.Right;
+            this.hsDeleteGroup.ContextMenuYDirection = SeControlsLib.YDirection.Down;
+            this.hsDeleteGroup.DefaultButtonMode = SeControlsLib.BtnMode.Context;
+            this.hsDeleteGroup.Dock = System.Windows.Forms.DockStyle.Right;
+            this.hsDeleteGroup.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.hsDeleteGroup.FlatAppearance.BorderSize = 0;
+            this.hsDeleteGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hsDeleteGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hsDeleteGroup.HoverStyle = SeControlsLib.frameStyle.none;
+            this.hsDeleteGroup.Image = global::SENotesNET.Properties.Resources.minus_rt24x;
+            this.hsDeleteGroup.ImageHover = global::SENotesNET.Properties.Resources.minus_blue24x;
+            this.hsDeleteGroup.ImageToggleOnSelect = false;
+            this.hsDeleteGroup.Location = new System.Drawing.Point(186, 16);
+            this.hsDeleteGroup.Marked = false;
+            this.hsDeleteGroup.MarkedColor = System.Drawing.Color.Teal;
+            this.hsDeleteGroup.MarkedStyle = SeControlsLib.frameStyle.filled;
+            this.hsDeleteGroup.MarkedText = "";
+            this.hsDeleteGroup.MarkMode = false;
+            this.hsDeleteGroup.Name = "hsDeleteGroup";
+            this.hsDeleteGroup.NonMarkedText = "";
+            this.hsDeleteGroup.Shortcut = BasicClassLibrary.Shortcut.None;
+            this.hsDeleteGroup.ShowShortcut = false;
+            this.hsDeleteGroup.Size = new System.Drawing.Size(24, 22);
+            this.hsDeleteGroup.TabIndex = 18;
+            this.hsDeleteGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hsDeleteGroup.ToolTipActive = false;
+            this.hsDeleteGroup.ToolTipAutomaticDelay = 500;
+            this.hsDeleteGroup.ToolTipAutoPopDelay = 5000;
+            this.hsDeleteGroup.ToolTipBackColor = System.Drawing.SystemColors.Info;
+            this.hsDeleteGroup.ToolTipFont = new System.Drawing.Font("Comic Sans MS", 9F);
+            this.hsDeleteGroup.ToolTipFor4ContextMenu = true;
+            this.hsDeleteGroup.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
+            this.hsDeleteGroup.ToolTipInitialDelay = 500;
+            this.hsDeleteGroup.ToolTipIsBallon = false;
+            this.hsDeleteGroup.ToolTipOwnerDraw = false;
+            this.hsDeleteGroup.ToolTipReshowDelay = 100;
+            this.hsDeleteGroup.ToolTipShowAlways = false;
+            this.hsDeleteGroup.ToolTipText = "";
+            this.hsDeleteGroup.ToolTipTextColor = System.Drawing.SystemColors.InfoText;
+            this.hsDeleteGroup.ToolTipTitle = "";
+            this.hsDeleteGroup.ToolTipTitleColor = System.Drawing.Color.Blue;
+            this.hsDeleteGroup.UseVisualStyleBackColor = false;
+            this.hsDeleteGroup.Click += new System.EventHandler(this.hsDeleteGroup_Click);
+            // 
+            // hsInsertGroup
+            // 
+            this.hsInsertGroup.BackColor = System.Drawing.Color.Transparent;
+            this.hsInsertGroup.BackColorHover = System.Drawing.Color.Transparent;
+            this.hsInsertGroup.BorderColorHover = System.Drawing.Color.Transparent;
+            this.hsInsertGroup.ContextMenuEdges = SeControlsLib.Edge.Center;
+            this.hsInsertGroup.ContextMenuXDirection = SeControlsLib.XDirection.Right;
+            this.hsInsertGroup.ContextMenuYDirection = SeControlsLib.YDirection.Down;
+            this.hsInsertGroup.DefaultButtonMode = SeControlsLib.BtnMode.Context;
+            this.hsInsertGroup.Dock = System.Windows.Forms.DockStyle.Right;
+            this.hsInsertGroup.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.hsInsertGroup.FlatAppearance.BorderSize = 0;
+            this.hsInsertGroup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hsInsertGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hsInsertGroup.HoverStyle = SeControlsLib.frameStyle.none;
+            this.hsInsertGroup.Image = global::SENotesNET.Properties.Resources.plus_gn_24x;
+            this.hsInsertGroup.ImageHover = global::SENotesNET.Properties.Resources.plus_blue_24x;
+            this.hsInsertGroup.ImageToggleOnSelect = false;
+            this.hsInsertGroup.Location = new System.Drawing.Point(210, 16);
+            this.hsInsertGroup.Marked = false;
+            this.hsInsertGroup.MarkedColor = System.Drawing.Color.Teal;
+            this.hsInsertGroup.MarkedStyle = SeControlsLib.frameStyle.filled;
+            this.hsInsertGroup.MarkedText = "";
+            this.hsInsertGroup.MarkMode = false;
+            this.hsInsertGroup.Name = "hsInsertGroup";
+            this.hsInsertGroup.NonMarkedText = "";
+            this.hsInsertGroup.Shortcut = BasicClassLibrary.Shortcut.None;
+            this.hsInsertGroup.ShowShortcut = false;
+            this.hsInsertGroup.Size = new System.Drawing.Size(24, 22);
+            this.hsInsertGroup.TabIndex = 17;
+            this.hsInsertGroup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.hsInsertGroup.ToolTipActive = false;
+            this.hsInsertGroup.ToolTipAutomaticDelay = 500;
+            this.hsInsertGroup.ToolTipAutoPopDelay = 5000;
+            this.hsInsertGroup.ToolTipBackColor = System.Drawing.SystemColors.Info;
+            this.hsInsertGroup.ToolTipFont = new System.Drawing.Font("Comic Sans MS", 9F);
+            this.hsInsertGroup.ToolTipFor4ContextMenu = true;
+            this.hsInsertGroup.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
+            this.hsInsertGroup.ToolTipInitialDelay = 500;
+            this.hsInsertGroup.ToolTipIsBallon = false;
+            this.hsInsertGroup.ToolTipOwnerDraw = false;
+            this.hsInsertGroup.ToolTipReshowDelay = 100;
+            this.hsInsertGroup.ToolTipShowAlways = false;
+            this.hsInsertGroup.ToolTipText = "";
+            this.hsInsertGroup.ToolTipTextColor = System.Drawing.SystemColors.InfoText;
+            this.hsInsertGroup.ToolTipTitle = "";
+            this.hsInsertGroup.ToolTipTitleColor = System.Drawing.Color.Blue;
+            this.hsInsertGroup.UseVisualStyleBackColor = false;
+            this.hsInsertGroup.Click += new System.EventHandler(this.hsInsertGroup_Click);
             // 
             // gbOtherAttributes
             // 
@@ -407,7 +771,7 @@
             this.txtMetronomsSpeed.Size = new System.Drawing.Size(52, 20);
             this.txtMetronomsSpeed.TabIndex = 0;
             this.txtMetronomsSpeed.Text = "90";
-            this.txtMetronomsSpeed.TextChanged += new System.EventHandler(this.txtMetronomsSpeed_TextChanged);
+            this.txtMetronomsSpeed.TextChanged += new System.EventHandler(this.dataChanged);
             // 
             // lblRating
             // 
@@ -425,7 +789,7 @@
             this.txtRating.Size = new System.Drawing.Size(52, 20);
             this.txtRating.TabIndex = 0;
             this.txtRating.Text = "0";
-            this.txtRating.TextChanged += new System.EventHandler(this.txtRating_TextChanged);
+            this.txtRating.TextChanged += new System.EventHandler(this.dataChanged);
             // 
             // gbOrigin
             // 
@@ -451,419 +815,8 @@
             this.cbOrigin.Name = "cbOrigin";
             this.cbOrigin.Size = new System.Drawing.Size(183, 21);
             this.cbOrigin.TabIndex = 8;
-            this.cbOrigin.SelectedIndexChanged += new System.EventHandler(this.cbOrigin_SelectedIndexChanged);
-            this.cbOrigin.TextChanged += new System.EventHandler(this.cbOrigin_SelectedIndexChanged);
-            // 
-            // gbVariante
-            // 
-            this.gbVariante.Controls.Add(this.cbVariante);
-            this.gbVariante.Controls.Add(this.hsDeleteVariant);
-            this.gbVariante.Controls.Add(this.hsInsertVariant);
-            this.gbVariante.Location = new System.Drawing.Point(10, 156);
-            this.gbVariante.Name = "gbVariante";
-            this.gbVariante.Size = new System.Drawing.Size(237, 41);
-            this.gbVariante.TabIndex = 8;
-            this.gbVariante.TabStop = false;
-            this.gbVariante.Text = "Variante";
-            // 
-            // cbVariante
-            // 
-            this.cbVariante.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbVariante.FormattingEnabled = true;
-            this.cbVariante.Items.AddRange(new object[] {
-            "Akkordeon",
-            "Piano",
-            "Harp"});
-            this.cbVariante.Location = new System.Drawing.Point(3, 16);
-            this.cbVariante.Name = "cbVariante";
-            this.cbVariante.Size = new System.Drawing.Size(183, 21);
-            this.cbVariante.TabIndex = 8;
-            this.cbVariante.SelectedIndexChanged += new System.EventHandler(this.cbVariante_SelectedIndexChanged);
-            this.cbVariante.TextChanged += new System.EventHandler(this.cbVariante_SelectedIndexChanged);
-            // 
-            // gbSheetAttributes
-            // 
-            this.gbSheetAttributes.Controls.Add(this.txtAutoStepTime);
-            this.gbSheetAttributes.Controls.Add(this.label1);
-            this.gbSheetAttributes.Controls.Add(this.txtPageShowCount);
-            this.gbSheetAttributes.Controls.Add(this.lblSheetShowCount);
-            this.gbSheetAttributes.Controls.Add(this.txtPageStep);
-            this.gbSheetAttributes.Controls.Add(this.lblSheetPages);
-            this.gbSheetAttributes.Controls.Add(this.txtSheetHeightFactor);
-            this.gbSheetAttributes.Controls.Add(this.lblSheetHeight);
-            this.gbSheetAttributes.Controls.Add(this.txtSheetWidth);
-            this.gbSheetAttributes.Controls.Add(this.lblSheetWidth);
-            this.gbSheetAttributes.Location = new System.Drawing.Point(379, 17);
-            this.gbSheetAttributes.Name = "gbSheetAttributes";
-            this.gbSheetAttributes.Size = new System.Drawing.Size(163, 175);
-            this.gbSheetAttributes.TabIndex = 7;
-            this.gbSheetAttributes.TabStop = false;
-            this.gbSheetAttributes.Text = "Sheet Attributes";
-            // 
-            // txtAutoStepTime
-            // 
-            this.txtAutoStepTime.Location = new System.Drawing.Point(101, 140);
-            this.txtAutoStepTime.Name = "txtAutoStepTime";
-            this.txtAutoStepTime.Size = new System.Drawing.Size(52, 20);
-            this.txtAutoStepTime.TabIndex = 5;
-            this.txtAutoStepTime.TextChanged += new System.EventHandler(this.txtAutoStepTime_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 144);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Autostep Time (s)";
-            // 
-            // txtPageShowCount
-            // 
-            this.txtPageShowCount.Location = new System.Drawing.Point(101, 112);
-            this.txtPageShowCount.Name = "txtPageShowCount";
-            this.txtPageShowCount.Size = new System.Drawing.Size(52, 20);
-            this.txtPageShowCount.TabIndex = 3;
-            this.txtPageShowCount.TextChanged += new System.EventHandler(this.txtPageShowCount_TextChanged);
-            // 
-            // lblSheetShowCount
-            // 
-            this.lblSheetShowCount.AutoSize = true;
-            this.lblSheetShowCount.Location = new System.Drawing.Point(5, 114);
-            this.lblSheetShowCount.Name = "lblSheetShowCount";
-            this.lblSheetShowCount.Size = new System.Drawing.Size(98, 13);
-            this.lblSheetShowCount.TabIndex = 2;
-            this.lblSheetShowCount.Text = "Sheet Show Pages";
-            // 
-            // txtPageStep
-            // 
-            this.txtPageStep.Location = new System.Drawing.Point(101, 81);
-            this.txtPageStep.Name = "txtPageStep";
-            this.txtPageStep.Size = new System.Drawing.Size(52, 20);
-            this.txtPageStep.TabIndex = 1;
-            this.txtPageStep.TextChanged += new System.EventHandler(this.txtPageStep_TextChanged);
-            // 
-            // lblSheetPages
-            // 
-            this.lblSheetPages.AutoSize = true;
-            this.lblSheetPages.Location = new System.Drawing.Point(5, 84);
-            this.lblSheetPages.Name = "lblSheetPages";
-            this.lblSheetPages.Size = new System.Drawing.Size(93, 13);
-            this.lblSheetPages.TabIndex = 0;
-            this.lblSheetPages.Text = "Sheet Step Pages";
-            // 
-            // txtSheetHeightFactor
-            // 
-            this.txtSheetHeightFactor.Location = new System.Drawing.Point(101, 52);
-            this.txtSheetHeightFactor.Name = "txtSheetHeightFactor";
-            this.txtSheetHeightFactor.Size = new System.Drawing.Size(52, 20);
-            this.txtSheetHeightFactor.TabIndex = 1;
-            this.txtSheetHeightFactor.TextChanged += new System.EventHandler(this.txtSheetHeight_TextChanged);
-            // 
-            // lblSheetHeight
-            // 
-            this.lblSheetHeight.AutoSize = true;
-            this.lblSheetHeight.Location = new System.Drawing.Point(5, 55);
-            this.lblSheetHeight.Name = "lblSheetHeight";
-            this.lblSheetHeight.Size = new System.Drawing.Size(69, 13);
-            this.lblSheetHeight.TabIndex = 0;
-            this.lblSheetHeight.Text = "Sheet Height";
-            // 
-            // txtSheetWidth
-            // 
-            this.txtSheetWidth.Location = new System.Drawing.Point(101, 23);
-            this.txtSheetWidth.Name = "txtSheetWidth";
-            this.txtSheetWidth.Size = new System.Drawing.Size(52, 20);
-            this.txtSheetWidth.TabIndex = 1;
-            this.txtSheetWidth.TextChanged += new System.EventHandler(this.txtSheetWidth_TextChanged);
-            // 
-            // lblSheetWidth
-            // 
-            this.lblSheetWidth.AutoSize = true;
-            this.lblSheetWidth.Location = new System.Drawing.Point(5, 25);
-            this.lblSheetWidth.Name = "lblSheetWidth";
-            this.lblSheetWidth.Size = new System.Drawing.Size(66, 13);
-            this.lblSheetWidth.TabIndex = 0;
-            this.lblSheetWidth.Text = "Sheet Width";
-            // 
-            // gbInstrument
-            // 
-            this.gbInstrument.Controls.Add(this.cbInstrument);
-            this.gbInstrument.Controls.Add(this.hsDeleteInstrument);
-            this.gbInstrument.Controls.Add(this.hsInsertInstrument);
-            this.gbInstrument.Location = new System.Drawing.Point(10, 109);
-            this.gbInstrument.Name = "gbInstrument";
-            this.gbInstrument.Size = new System.Drawing.Size(237, 41);
-            this.gbInstrument.TabIndex = 4;
-            this.gbInstrument.TabStop = false;
-            this.gbInstrument.Text = "Instrument";
-            // 
-            // cbInstrument
-            // 
-            this.cbInstrument.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbInstrument.FormattingEnabled = true;
-            this.cbInstrument.Items.AddRange(new object[] {
-            "Akkordeon",
-            "Piano",
-            "Harp"});
-            this.cbInstrument.Location = new System.Drawing.Point(3, 16);
-            this.cbInstrument.Name = "cbInstrument";
-            this.cbInstrument.Size = new System.Drawing.Size(183, 21);
-            this.cbInstrument.TabIndex = 8;
-            this.cbInstrument.SelectedIndexChanged += new System.EventHandler(this.cbInstrument_SelectedIndexChanged);
-            this.cbInstrument.TextChanged += new System.EventHandler(this.cbInstrument_SelectedIndexChanged);
-            // 
-            // gbClassification
-            // 
-            this.gbClassification.Controls.Add(this.rbProfessional);
-            this.gbClassification.Controls.Add(this.rbBeginners);
-            this.gbClassification.Controls.Add(this.rbEasy);
-            this.gbClassification.Controls.Add(this.rbIntermediate);
-            this.gbClassification.Controls.Add(this.rbAdvanced);
-            this.gbClassification.Controls.Add(this.rbDifficulty);
-            this.gbClassification.Controls.Add(this.rbExperimantal);
-            this.gbClassification.Location = new System.Drawing.Point(254, 17);
-            this.gbClassification.Name = "gbClassification";
-            this.gbClassification.Size = new System.Drawing.Size(119, 175);
-            this.gbClassification.TabIndex = 6;
-            this.gbClassification.TabStop = false;
-            this.gbClassification.Text = "Level";
-            // 
-            // rbProfessional
-            // 
-            this.rbProfessional.AutoSize = true;
-            this.rbProfessional.Location = new System.Drawing.Point(5, 126);
-            this.rbProfessional.Name = "rbProfessional";
-            this.rbProfessional.Size = new System.Drawing.Size(82, 17);
-            this.rbProfessional.TabIndex = 0;
-            this.rbProfessional.Text = "Professional";
-            this.rbProfessional.UseVisualStyleBackColor = true;
-            this.rbProfessional.CheckedChanged += new System.EventHandler(this.level_checkedChanged);
-            // 
-            // rbBeginners
-            // 
-            this.rbBeginners.AutoSize = true;
-            this.rbBeginners.Location = new System.Drawing.Point(5, 17);
-            this.rbBeginners.Name = "rbBeginners";
-            this.rbBeginners.Size = new System.Drawing.Size(72, 17);
-            this.rbBeginners.TabIndex = 0;
-            this.rbBeginners.Text = "Beginners";
-            this.rbBeginners.UseVisualStyleBackColor = true;
-            this.rbBeginners.CheckedChanged += new System.EventHandler(this.level_checkedChanged);
-            // 
-            // rbEasy
-            // 
-            this.rbEasy.AutoSize = true;
-            this.rbEasy.Checked = true;
-            this.rbEasy.Location = new System.Drawing.Point(5, 39);
-            this.rbEasy.Name = "rbEasy";
-            this.rbEasy.Size = new System.Drawing.Size(48, 17);
-            this.rbEasy.TabIndex = 0;
-            this.rbEasy.TabStop = true;
-            this.rbEasy.Text = "Easy";
-            this.rbEasy.UseVisualStyleBackColor = true;
-            this.rbEasy.CheckedChanged += new System.EventHandler(this.level_checkedChanged);
-            // 
-            // rbIntermediate
-            // 
-            this.rbIntermediate.AutoSize = true;
-            this.rbIntermediate.Location = new System.Drawing.Point(5, 61);
-            this.rbIntermediate.Name = "rbIntermediate";
-            this.rbIntermediate.Size = new System.Drawing.Size(83, 17);
-            this.rbIntermediate.TabIndex = 0;
-            this.rbIntermediate.Text = "Intermediate";
-            this.rbIntermediate.UseVisualStyleBackColor = true;
-            this.rbIntermediate.CheckedChanged += new System.EventHandler(this.level_checkedChanged);
-            // 
-            // rbAdvanced
-            // 
-            this.rbAdvanced.AutoSize = true;
-            this.rbAdvanced.Location = new System.Drawing.Point(5, 82);
-            this.rbAdvanced.Name = "rbAdvanced";
-            this.rbAdvanced.Size = new System.Drawing.Size(74, 17);
-            this.rbAdvanced.TabIndex = 0;
-            this.rbAdvanced.Text = "Advanced";
-            this.rbAdvanced.UseVisualStyleBackColor = true;
-            this.rbAdvanced.CheckedChanged += new System.EventHandler(this.level_checkedChanged);
-            // 
-            // rbDifficulty
-            // 
-            this.rbDifficulty.AutoSize = true;
-            this.rbDifficulty.Location = new System.Drawing.Point(5, 104);
-            this.rbDifficulty.Name = "rbDifficulty";
-            this.rbDifficulty.Size = new System.Drawing.Size(65, 17);
-            this.rbDifficulty.TabIndex = 0;
-            this.rbDifficulty.Text = "Difficulty";
-            this.rbDifficulty.UseVisualStyleBackColor = true;
-            this.rbDifficulty.CheckedChanged += new System.EventHandler(this.level_checkedChanged);
-            // 
-            // rbExperimantal
-            // 
-            this.rbExperimantal.AutoSize = true;
-            this.rbExperimantal.Location = new System.Drawing.Point(5, 147);
-            this.rbExperimantal.Name = "rbExperimantal";
-            this.rbExperimantal.Size = new System.Drawing.Size(85, 17);
-            this.rbExperimantal.TabIndex = 0;
-            this.rbExperimantal.Text = "Experimental";
-            this.rbExperimantal.UseVisualStyleBackColor = true;
-            this.rbExperimantal.CheckedChanged += new System.EventHandler(this.level_checkedChanged);
-            // 
-            // gbInterpret
-            // 
-            this.gbInterpret.Controls.Add(this.cbInterpret);
-            this.gbInterpret.Controls.Add(this.hsDeleteInterpret);
-            this.gbInterpret.Controls.Add(this.hsSaveInterpret);
-            this.gbInterpret.Location = new System.Drawing.Point(10, 63);
-            this.gbInterpret.Name = "gbInterpret";
-            this.gbInterpret.Size = new System.Drawing.Size(237, 41);
-            this.gbInterpret.TabIndex = 4;
-            this.gbInterpret.TabStop = false;
-            this.gbInterpret.Text = "Interpret";
-            // 
-            // cbInterpret
-            // 
-            this.cbInterpret.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbInterpret.FormattingEnabled = true;
-            this.cbInterpret.Location = new System.Drawing.Point(3, 16);
-            this.cbInterpret.Name = "cbInterpret";
-            this.cbInterpret.Size = new System.Drawing.Size(183, 21);
-            this.cbInterpret.TabIndex = 5;
-            this.cbInterpret.SelectedIndexChanged += new System.EventHandler(this.cbInterpret_SelectedIndexChanged);
-            this.cbInterpret.TextChanged += new System.EventHandler(this.cbInterpret_SelectedIndexChanged);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.hsNewSong);
-            this.flowLayoutPanel1.Controls.Add(this.hsUpdateSong);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(676, 45);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // gbSongGrid
-            // 
-            this.gbSongGrid.Controls.Add(this.dgvSongs);
-            this.gbSongGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gbSongGrid.Location = new System.Drawing.Point(0, 45);
-            this.gbSongGrid.Name = "gbSongGrid";
-            this.gbSongGrid.Size = new System.Drawing.Size(871, 861);
-            this.gbSongGrid.TabIndex = 12;
-            this.gbSongGrid.TabStop = false;
-            this.gbSongGrid.Text = "Songs (0)";
-            // 
-            // dgvSongs
-            // 
-            this.dgvSongs.AllowUserToOrderColumns = true;
-            this.dgvSongs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvSongs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSongs.ContextMenuStrip = this.cmsSongs;
-            this.dgvSongs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvSongs.Location = new System.Drawing.Point(3, 16);
-            this.dgvSongs.MultiSelect = false;
-            this.dgvSongs.Name = "dgvSongs";
-            this.dgvSongs.ReadOnly = true;
-            this.dgvSongs.RowHeadersVisible = false;
-            this.dgvSongs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvSongs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSongs.Size = new System.Drawing.Size(865, 842);
-            this.dgvSongs.TabIndex = 11;
-            this.dgvSongs.SelectionChanged += new System.EventHandler(this.dgvSongs_SelectionChanged);
-            this.dgvSongs.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
-            this.dgvSongs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
-            // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.hsRefresh);
-            this.flowLayoutPanel2.Controls.Add(this.hsClearRefresh);
-            this.flowLayoutPanel2.Controls.Add(this.gbFilterSongName);
-            this.flowLayoutPanel2.Controls.Add(this.gbFilterInterpret);
-            this.flowLayoutPanel2.Controls.Add(this.ckSortRating);
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(871, 45);
-            this.flowLayoutPanel2.TabIndex = 2;
-            // 
-            // gbFilterSongName
-            // 
-            this.gbFilterSongName.Controls.Add(this.txtFilterSongName);
-            this.gbFilterSongName.Location = new System.Drawing.Point(208, 3);
-            this.gbFilterSongName.Name = "gbFilterSongName";
-            this.gbFilterSongName.Size = new System.Drawing.Size(171, 42);
-            this.gbFilterSongName.TabIndex = 2;
-            this.gbFilterSongName.TabStop = false;
-            this.gbFilterSongName.Text = "Song Name";
-            // 
-            // txtFilterSongName
-            // 
-            this.txtFilterSongName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtFilterSongName.Location = new System.Drawing.Point(3, 16);
-            this.txtFilterSongName.Name = "txtFilterSongName";
-            this.txtFilterSongName.Size = new System.Drawing.Size(165, 20);
-            this.txtFilterSongName.TabIndex = 0;
-            this.txtFilterSongName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterSongName_KeyDown);
-            // 
-            // gbFilterInterpret
-            // 
-            this.gbFilterInterpret.Controls.Add(this.txtFilterInterpret);
-            this.gbFilterInterpret.Location = new System.Drawing.Point(385, 3);
-            this.gbFilterInterpret.Name = "gbFilterInterpret";
-            this.gbFilterInterpret.Size = new System.Drawing.Size(171, 42);
-            this.gbFilterInterpret.TabIndex = 2;
-            this.gbFilterInterpret.TabStop = false;
-            this.gbFilterInterpret.Text = "Interpret";
-            // 
-            // txtFilterInterpret
-            // 
-            this.txtFilterInterpret.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtFilterInterpret.Location = new System.Drawing.Point(3, 16);
-            this.txtFilterInterpret.Name = "txtFilterInterpret";
-            this.txtFilterInterpret.Size = new System.Drawing.Size(165, 20);
-            this.txtFilterInterpret.TabIndex = 0;
-            this.txtFilterInterpret.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterInterpret_KeyDown);
-            // 
-            // ckSortRating
-            // 
-            this.ckSortRating.AutoSize = true;
-            this.ckSortRating.Dock = System.Windows.Forms.DockStyle.Right;
-            this.ckSortRating.Location = new System.Drawing.Point(562, 3);
-            this.ckSortRating.Name = "ckSortRating";
-            this.ckSortRating.Size = new System.Drawing.Size(79, 42);
-            this.ckSortRating.TabIndex = 6;
-            this.ckSortRating.Text = "Sort Rating";
-            this.ckSortRating.UseVisualStyleBackColor = true;
-            this.ckSortRating.CheckedChanged += new System.EventHandler(this.ckSortRating_CheckedChanged);
-            // 
-            // upperPanel
-            // 
-            this.upperPanel.Controls.Add(this.flowLayoutPanel3);
-            this.upperPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.upperPanel.Location = new System.Drawing.Point(0, 0);
-            this.upperPanel.Name = "upperPanel";
-            this.upperPanel.Size = new System.Drawing.Size(1550, 65);
-            this.upperPanel.TabIndex = 8;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Controls.Add(this.hsClose);
-            this.flowLayoutPanel3.Controls.Add(this.hsShowNotes);
-            this.flowLayoutPanel3.Controls.Add(this.hsMaintain);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(531, 65);
-            this.flowLayoutPanel3.TabIndex = 5;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Name = "columnHeader1";
-            // 
-            // ofdDB
-            // 
-            this.ofdDB.FileName = "MyData.DB";
-            this.ofdDB.Filter = "LiteDB|*.db|All|*.*";
-            this.ofdDB.ShowReadOnly = true;
-            this.ofdDB.Title = "Open DB";
+            this.cbOrigin.SelectedIndexChanged += new System.EventHandler(this.dataChanged);
+            this.cbOrigin.TextChanged += new System.EventHandler(this.dataChanged);
             // 
             // hsDeleteOrigin
             // 
@@ -965,6 +918,33 @@
             this.hsInsertOrigin.UseVisualStyleBackColor = false;
             this.hsInsertOrigin.Click += new System.EventHandler(this.hsInsertOrigin_Click);
             // 
+            // gbVariante
+            // 
+            this.gbVariante.Controls.Add(this.cbVariante);
+            this.gbVariante.Controls.Add(this.hsDeleteVariant);
+            this.gbVariante.Controls.Add(this.hsInsertVariant);
+            this.gbVariante.Location = new System.Drawing.Point(10, 156);
+            this.gbVariante.Name = "gbVariante";
+            this.gbVariante.Size = new System.Drawing.Size(237, 41);
+            this.gbVariante.TabIndex = 8;
+            this.gbVariante.TabStop = false;
+            this.gbVariante.Text = "Variante";
+            // 
+            // cbVariante
+            // 
+            this.cbVariante.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbVariante.FormattingEnabled = true;
+            this.cbVariante.Items.AddRange(new object[] {
+            "Akkordeon",
+            "Piano",
+            "Harp"});
+            this.cbVariante.Location = new System.Drawing.Point(3, 16);
+            this.cbVariante.Name = "cbVariante";
+            this.cbVariante.Size = new System.Drawing.Size(183, 21);
+            this.cbVariante.TabIndex = 8;
+            this.cbVariante.SelectedIndexChanged += new System.EventHandler(this.dataChanged);
+            this.cbVariante.TextChanged += new System.EventHandler(this.dataChanged);
+            // 
             // hsDeleteVariant
             // 
             this.hsDeleteVariant.BackColor = System.Drawing.Color.Transparent;
@@ -1064,6 +1044,137 @@
             this.hsInsertVariant.ToolTipTitleColor = System.Drawing.Color.Blue;
             this.hsInsertVariant.UseVisualStyleBackColor = false;
             this.hsInsertVariant.Click += new System.EventHandler(this.hsInsertVariant_Click);
+            // 
+            // gbSheetAttributes
+            // 
+            this.gbSheetAttributes.Controls.Add(this.txtAutoStepTime);
+            this.gbSheetAttributes.Controls.Add(this.label1);
+            this.gbSheetAttributes.Controls.Add(this.txtPageShowCount);
+            this.gbSheetAttributes.Controls.Add(this.lblSheetShowCount);
+            this.gbSheetAttributes.Controls.Add(this.txtPageStep);
+            this.gbSheetAttributes.Controls.Add(this.lblSheetPages);
+            this.gbSheetAttributes.Controls.Add(this.txtSheetHeightFactor);
+            this.gbSheetAttributes.Controls.Add(this.lblSheetHeight);
+            this.gbSheetAttributes.Controls.Add(this.txtSheetWidth);
+            this.gbSheetAttributes.Controls.Add(this.lblSheetWidth);
+            this.gbSheetAttributes.Location = new System.Drawing.Point(379, 17);
+            this.gbSheetAttributes.Name = "gbSheetAttributes";
+            this.gbSheetAttributes.Size = new System.Drawing.Size(163, 175);
+            this.gbSheetAttributes.TabIndex = 7;
+            this.gbSheetAttributes.TabStop = false;
+            this.gbSheetAttributes.Text = "Sheet Attributes";
+            // 
+            // txtAutoStepTime
+            // 
+            this.txtAutoStepTime.Location = new System.Drawing.Point(101, 140);
+            this.txtAutoStepTime.Name = "txtAutoStepTime";
+            this.txtAutoStepTime.Size = new System.Drawing.Size(52, 20);
+            this.txtAutoStepTime.TabIndex = 5;
+            this.txtAutoStepTime.TextChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 144);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Autostep Time (s)";
+            // 
+            // txtPageShowCount
+            // 
+            this.txtPageShowCount.Location = new System.Drawing.Point(101, 112);
+            this.txtPageShowCount.Name = "txtPageShowCount";
+            this.txtPageShowCount.Size = new System.Drawing.Size(52, 20);
+            this.txtPageShowCount.TabIndex = 3;
+            this.txtPageShowCount.TextChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // lblSheetShowCount
+            // 
+            this.lblSheetShowCount.AutoSize = true;
+            this.lblSheetShowCount.Location = new System.Drawing.Point(5, 114);
+            this.lblSheetShowCount.Name = "lblSheetShowCount";
+            this.lblSheetShowCount.Size = new System.Drawing.Size(98, 13);
+            this.lblSheetShowCount.TabIndex = 2;
+            this.lblSheetShowCount.Text = "Sheet Show Pages";
+            // 
+            // txtPageStep
+            // 
+            this.txtPageStep.Location = new System.Drawing.Point(101, 81);
+            this.txtPageStep.Name = "txtPageStep";
+            this.txtPageStep.Size = new System.Drawing.Size(52, 20);
+            this.txtPageStep.TabIndex = 1;
+            this.txtPageStep.TextChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // lblSheetPages
+            // 
+            this.lblSheetPages.AutoSize = true;
+            this.lblSheetPages.Location = new System.Drawing.Point(5, 84);
+            this.lblSheetPages.Name = "lblSheetPages";
+            this.lblSheetPages.Size = new System.Drawing.Size(93, 13);
+            this.lblSheetPages.TabIndex = 0;
+            this.lblSheetPages.Text = "Sheet Step Pages";
+            // 
+            // txtSheetHeightFactor
+            // 
+            this.txtSheetHeightFactor.Location = new System.Drawing.Point(101, 52);
+            this.txtSheetHeightFactor.Name = "txtSheetHeightFactor";
+            this.txtSheetHeightFactor.Size = new System.Drawing.Size(52, 20);
+            this.txtSheetHeightFactor.TabIndex = 1;
+            this.txtSheetHeightFactor.TextChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // lblSheetHeight
+            // 
+            this.lblSheetHeight.AutoSize = true;
+            this.lblSheetHeight.Location = new System.Drawing.Point(5, 55);
+            this.lblSheetHeight.Name = "lblSheetHeight";
+            this.lblSheetHeight.Size = new System.Drawing.Size(69, 13);
+            this.lblSheetHeight.TabIndex = 0;
+            this.lblSheetHeight.Text = "Sheet Height";
+            // 
+            // txtSheetWidth
+            // 
+            this.txtSheetWidth.Location = new System.Drawing.Point(101, 23);
+            this.txtSheetWidth.Name = "txtSheetWidth";
+            this.txtSheetWidth.Size = new System.Drawing.Size(52, 20);
+            this.txtSheetWidth.TabIndex = 1;
+            this.txtSheetWidth.TextChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // lblSheetWidth
+            // 
+            this.lblSheetWidth.AutoSize = true;
+            this.lblSheetWidth.Location = new System.Drawing.Point(5, 25);
+            this.lblSheetWidth.Name = "lblSheetWidth";
+            this.lblSheetWidth.Size = new System.Drawing.Size(66, 13);
+            this.lblSheetWidth.TabIndex = 0;
+            this.lblSheetWidth.Text = "Sheet Width";
+            // 
+            // gbInstrument
+            // 
+            this.gbInstrument.Controls.Add(this.cbInstrument);
+            this.gbInstrument.Controls.Add(this.hsDeleteInstrument);
+            this.gbInstrument.Controls.Add(this.hsInsertInstrument);
+            this.gbInstrument.Location = new System.Drawing.Point(10, 109);
+            this.gbInstrument.Name = "gbInstrument";
+            this.gbInstrument.Size = new System.Drawing.Size(237, 41);
+            this.gbInstrument.TabIndex = 4;
+            this.gbInstrument.TabStop = false;
+            this.gbInstrument.Text = "Instrument";
+            // 
+            // cbInstrument
+            // 
+            this.cbInstrument.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbInstrument.FormattingEnabled = true;
+            this.cbInstrument.Items.AddRange(new object[] {
+            "Akkordeon",
+            "Piano",
+            "Harp"});
+            this.cbInstrument.Location = new System.Drawing.Point(3, 16);
+            this.cbInstrument.Name = "cbInstrument";
+            this.cbInstrument.Size = new System.Drawing.Size(183, 21);
+            this.cbInstrument.TabIndex = 8;
+            this.cbInstrument.SelectedIndexChanged += new System.EventHandler(this.dataChanged);
+            this.cbInstrument.TextChanged += new System.EventHandler(this.dataChanged);
             // 
             // hsDeleteInstrument
             // 
@@ -1165,6 +1276,124 @@
             this.hsInsertInstrument.UseVisualStyleBackColor = false;
             this.hsInsertInstrument.Click += new System.EventHandler(this.hsInsertInstrument_Click);
             // 
+            // gbClassification
+            // 
+            this.gbClassification.Controls.Add(this.rbProfessional);
+            this.gbClassification.Controls.Add(this.rbBeginners);
+            this.gbClassification.Controls.Add(this.rbEasy);
+            this.gbClassification.Controls.Add(this.rbIntermediate);
+            this.gbClassification.Controls.Add(this.rbAdvanced);
+            this.gbClassification.Controls.Add(this.rbDifficulty);
+            this.gbClassification.Controls.Add(this.rbExperimantal);
+            this.gbClassification.Location = new System.Drawing.Point(254, 17);
+            this.gbClassification.Name = "gbClassification";
+            this.gbClassification.Size = new System.Drawing.Size(119, 175);
+            this.gbClassification.TabIndex = 6;
+            this.gbClassification.TabStop = false;
+            this.gbClassification.Text = "Level";
+            // 
+            // rbProfessional
+            // 
+            this.rbProfessional.AutoSize = true;
+            this.rbProfessional.Location = new System.Drawing.Point(5, 126);
+            this.rbProfessional.Name = "rbProfessional";
+            this.rbProfessional.Size = new System.Drawing.Size(82, 17);
+            this.rbProfessional.TabIndex = 0;
+            this.rbProfessional.Text = "Professional";
+            this.rbProfessional.UseVisualStyleBackColor = true;
+            this.rbProfessional.CheckedChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // rbBeginners
+            // 
+            this.rbBeginners.AutoSize = true;
+            this.rbBeginners.Location = new System.Drawing.Point(5, 17);
+            this.rbBeginners.Name = "rbBeginners";
+            this.rbBeginners.Size = new System.Drawing.Size(72, 17);
+            this.rbBeginners.TabIndex = 0;
+            this.rbBeginners.Text = "Beginners";
+            this.rbBeginners.UseVisualStyleBackColor = true;
+            this.rbBeginners.CheckedChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // rbEasy
+            // 
+            this.rbEasy.AutoSize = true;
+            this.rbEasy.Checked = true;
+            this.rbEasy.Location = new System.Drawing.Point(5, 39);
+            this.rbEasy.Name = "rbEasy";
+            this.rbEasy.Size = new System.Drawing.Size(48, 17);
+            this.rbEasy.TabIndex = 0;
+            this.rbEasy.TabStop = true;
+            this.rbEasy.Text = "Easy";
+            this.rbEasy.UseVisualStyleBackColor = true;
+            this.rbEasy.CheckedChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // rbIntermediate
+            // 
+            this.rbIntermediate.AutoSize = true;
+            this.rbIntermediate.Location = new System.Drawing.Point(5, 61);
+            this.rbIntermediate.Name = "rbIntermediate";
+            this.rbIntermediate.Size = new System.Drawing.Size(83, 17);
+            this.rbIntermediate.TabIndex = 0;
+            this.rbIntermediate.Text = "Intermediate";
+            this.rbIntermediate.UseVisualStyleBackColor = true;
+            this.rbIntermediate.CheckedChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // rbAdvanced
+            // 
+            this.rbAdvanced.AutoSize = true;
+            this.rbAdvanced.Location = new System.Drawing.Point(5, 82);
+            this.rbAdvanced.Name = "rbAdvanced";
+            this.rbAdvanced.Size = new System.Drawing.Size(74, 17);
+            this.rbAdvanced.TabIndex = 0;
+            this.rbAdvanced.Text = "Advanced";
+            this.rbAdvanced.UseVisualStyleBackColor = true;
+            this.rbAdvanced.CheckedChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // rbDifficulty
+            // 
+            this.rbDifficulty.AutoSize = true;
+            this.rbDifficulty.Location = new System.Drawing.Point(5, 104);
+            this.rbDifficulty.Name = "rbDifficulty";
+            this.rbDifficulty.Size = new System.Drawing.Size(65, 17);
+            this.rbDifficulty.TabIndex = 0;
+            this.rbDifficulty.Text = "Difficulty";
+            this.rbDifficulty.UseVisualStyleBackColor = true;
+            this.rbDifficulty.CheckedChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // rbExperimantal
+            // 
+            this.rbExperimantal.AutoSize = true;
+            this.rbExperimantal.Location = new System.Drawing.Point(5, 147);
+            this.rbExperimantal.Name = "rbExperimantal";
+            this.rbExperimantal.Size = new System.Drawing.Size(85, 17);
+            this.rbExperimantal.TabIndex = 0;
+            this.rbExperimantal.Text = "Experimental";
+            this.rbExperimantal.UseVisualStyleBackColor = true;
+            this.rbExperimantal.CheckedChanged += new System.EventHandler(this.dataChanged);
+            // 
+            // gbInterpret
+            // 
+            this.gbInterpret.Controls.Add(this.cbInterpret);
+            this.gbInterpret.Controls.Add(this.hsDeleteInterpret);
+            this.gbInterpret.Controls.Add(this.hsSaveInterpret);
+            this.gbInterpret.Location = new System.Drawing.Point(10, 63);
+            this.gbInterpret.Name = "gbInterpret";
+            this.gbInterpret.Size = new System.Drawing.Size(237, 41);
+            this.gbInterpret.TabIndex = 4;
+            this.gbInterpret.TabStop = false;
+            this.gbInterpret.Text = "Interpret";
+            // 
+            // cbInterpret
+            // 
+            this.cbInterpret.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbInterpret.FormattingEnabled = true;
+            this.cbInterpret.Location = new System.Drawing.Point(3, 16);
+            this.cbInterpret.Name = "cbInterpret";
+            this.cbInterpret.Size = new System.Drawing.Size(183, 21);
+            this.cbInterpret.TabIndex = 5;
+            this.cbInterpret.SelectedIndexChanged += new System.EventHandler(this.dataChanged);
+            this.cbInterpret.TextChanged += new System.EventHandler(this.dataChanged);
+            // 
             // hsDeleteInterpret
             // 
             this.hsDeleteInterpret.BackColor = System.Drawing.Color.Transparent;
@@ -1265,234 +1494,18 @@
             this.hsSaveInterpret.UseVisualStyleBackColor = false;
             this.hsSaveInterpret.Click += new System.EventHandler(this.hsSaveInterpret_Click);
             // 
-            // tsmiReloadFile
+            // flowLayoutPanel1
             // 
-            this.tsmiReloadFile.Image = ((System.Drawing.Image)(resources.GetObject("tsmiReloadFile.Image")));
-            this.tsmiReloadFile.Name = "tsmiReloadFile";
-            this.tsmiReloadFile.Size = new System.Drawing.Size(207, 22);
-            this.tsmiReloadFile.Text = "Reload file";
-            // 
-            // tsmiExecuteMusicFile
-            // 
-            this.tsmiExecuteMusicFile.Image = ((System.Drawing.Image)(resources.GetObject("tsmiExecuteMusicFile.Image")));
-            this.tsmiExecuteMusicFile.Name = "tsmiExecuteMusicFile";
-            this.tsmiExecuteMusicFile.Size = new System.Drawing.Size(207, 22);
-            this.tsmiExecuteMusicFile.Text = "Execute";
-            // 
-            // tsmiExportMuseScore2PDF
-            // 
-            this.tsmiExportMuseScore2PDF.Image = ((System.Drawing.Image)(resources.GetObject("tsmiExportMuseScore2PDF.Image")));
-            this.tsmiExportMuseScore2PDF.Name = "tsmiExportMuseScore2PDF";
-            this.tsmiExportMuseScore2PDF.Size = new System.Drawing.Size(207, 22);
-            this.tsmiExportMuseScore2PDF.Text = "Export MuseScore to PDF";
-            // 
-            // tsmiExportMuseScore2MP3
-            // 
-            this.tsmiExportMuseScore2MP3.Image = ((System.Drawing.Image)(resources.GetObject("tsmiExportMuseScore2MP3.Image")));
-            this.tsmiExportMuseScore2MP3.Name = "tsmiExportMuseScore2MP3";
-            this.tsmiExportMuseScore2MP3.Size = new System.Drawing.Size(207, 22);
-            this.tsmiExportMuseScore2MP3.Text = "Export to MP3";
-            // 
-            // tsmiSetFileTypeSongfile
-            // 
-            this.tsmiSetFileTypeSongfile.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSetFileTypeSongfile.Image")));
-            this.tsmiSetFileTypeSongfile.Name = "tsmiSetFileTypeSongfile";
-            this.tsmiSetFileTypeSongfile.Size = new System.Drawing.Size(207, 22);
-            this.tsmiSetFileTypeSongfile.Text = "Set to Songfile";
-            // 
-            // tsmiSetFileTypeMuseScore
-            // 
-            this.tsmiSetFileTypeMuseScore.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSetFileTypeMuseScore.Image")));
-            this.tsmiSetFileTypeMuseScore.Name = "tsmiSetFileTypeMuseScore";
-            this.tsmiSetFileTypeMuseScore.Size = new System.Drawing.Size(207, 22);
-            this.tsmiSetFileTypeMuseScore.Text = "Set to MuseScore";
-            // 
-            // tsmiSetFilePDFfile
-            // 
-            this.tsmiSetFilePDFfile.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSetFilePDFfile.Image")));
-            this.tsmiSetFilePDFfile.Name = "tsmiSetFilePDFfile";
-            this.tsmiSetFilePDFfile.Size = new System.Drawing.Size(207, 22);
-            this.tsmiSetFilePDFfile.Text = "Set to PDF File";
-            // 
-            // tsmiSetFileText
-            // 
-            this.tsmiSetFileText.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSetFileText.Image")));
-            this.tsmiSetFileText.Name = "tsmiSetFileText";
-            this.tsmiSetFileText.Size = new System.Drawing.Size(207, 22);
-            this.tsmiSetFileText.Text = "Set to Info Text";
-            // 
-            // tsmiSetFileMP3
-            // 
-            this.tsmiSetFileMP3.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSetFileMP3.Image")));
-            this.tsmiSetFileMP3.Name = "tsmiSetFileMP3";
-            this.tsmiSetFileMP3.Size = new System.Drawing.Size(207, 22);
-            this.tsmiSetFileMP3.Text = "Set to MP3 Audio";
-            // 
-            // tsmiSongFilesUp
-            // 
-            this.tsmiSongFilesUp.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSongFilesUp.Image")));
-            this.tsmiSongFilesUp.Name = "tsmiSongFilesUp";
-            this.tsmiSongFilesUp.Size = new System.Drawing.Size(207, 22);
-            this.tsmiSongFilesUp.Text = "Up";
-            // 
-            // tsmiSongFileDown
-            // 
-            this.tsmiSongFileDown.Image = ((System.Drawing.Image)(resources.GetObject("tsmiSongFileDown.Image")));
-            this.tsmiSongFileDown.Name = "tsmiSongFileDown";
-            this.tsmiSongFileDown.Size = new System.Drawing.Size(207, 22);
-            this.tsmiSongFileDown.Text = "Down";
-            // 
-            // hsRemoveFile
-            // 
-            this.hsRemoveFile.BackColor = System.Drawing.Color.Transparent;
-            this.hsRemoveFile.BackColorHover = System.Drawing.Color.Transparent;
-            this.hsRemoveFile.BorderColorHover = System.Drawing.Color.Transparent;
-            this.hsRemoveFile.ContextMenuEdges = SeControlsLib.Edge.Center;
-            this.hsRemoveFile.ContextMenuXDirection = SeControlsLib.XDirection.Right;
-            this.hsRemoveFile.ContextMenuYDirection = SeControlsLib.YDirection.Down;
-            this.hsRemoveFile.DefaultButtonMode = SeControlsLib.BtnMode.Context;
-            this.hsRemoveFile.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.hsRemoveFile.FlatAppearance.BorderSize = 0;
-            this.hsRemoveFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hsRemoveFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hsRemoveFile.HoverStyle = SeControlsLib.frameStyle.none;
-            this.hsRemoveFile.Image = global::SENotesNET.Properties.Resources.minus_rt24x;
-            this.hsRemoveFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.hsRemoveFile.ImageHover = global::SENotesNET.Properties.Resources.minus_blue24x;
-            this.hsRemoveFile.ImageToggleOnSelect = false;
-            this.hsRemoveFile.Location = new System.Drawing.Point(108, 4);
-            this.hsRemoveFile.Marked = false;
-            this.hsRemoveFile.MarkedColor = System.Drawing.Color.Teal;
-            this.hsRemoveFile.MarkedStyle = SeControlsLib.frameStyle.filled;
-            this.hsRemoveFile.MarkedText = "";
-            this.hsRemoveFile.MarkMode = false;
-            this.hsRemoveFile.Name = "hsRemoveFile";
-            this.hsRemoveFile.NonMarkedText = "";
-            this.hsRemoveFile.Shortcut = BasicClassLibrary.Shortcut.None;
-            this.hsRemoveFile.ShowShortcut = false;
-            this.hsRemoveFile.Size = new System.Drawing.Size(100, 36);
-            this.hsRemoveFile.TabIndex = 14;
-            this.hsRemoveFile.Text = "Remove file";
-            this.hsRemoveFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.hsRemoveFile.ToolTipActive = false;
-            this.hsRemoveFile.ToolTipAutomaticDelay = 500;
-            this.hsRemoveFile.ToolTipAutoPopDelay = 5000;
-            this.hsRemoveFile.ToolTipBackColor = System.Drawing.SystemColors.Info;
-            this.hsRemoveFile.ToolTipFont = new System.Drawing.Font("Comic Sans MS", 9F);
-            this.hsRemoveFile.ToolTipFor4ContextMenu = true;
-            this.hsRemoveFile.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
-            this.hsRemoveFile.ToolTipInitialDelay = 500;
-            this.hsRemoveFile.ToolTipIsBallon = false;
-            this.hsRemoveFile.ToolTipOwnerDraw = false;
-            this.hsRemoveFile.ToolTipReshowDelay = 100;
-            this.hsRemoveFile.ToolTipShowAlways = false;
-            this.hsRemoveFile.ToolTipText = "";
-            this.hsRemoveFile.ToolTipTextColor = System.Drawing.SystemColors.InfoText;
-            this.hsRemoveFile.ToolTipTitle = "";
-            this.hsRemoveFile.ToolTipTitleColor = System.Drawing.Color.Blue;
-            this.hsRemoveFile.UseVisualStyleBackColor = false;
-            this.hsRemoveFile.Click += new System.EventHandler(this.hsRemoveFile_Click);
-            // 
-            // hsSaveNewIndex
-            // 
-            this.hsSaveNewIndex.BackColor = System.Drawing.Color.Transparent;
-            this.hsSaveNewIndex.BackColorHover = System.Drawing.Color.Transparent;
-            this.hsSaveNewIndex.BorderColorHover = System.Drawing.Color.Transparent;
-            this.hsSaveNewIndex.ContextMenuEdges = SeControlsLib.Edge.Center;
-            this.hsSaveNewIndex.ContextMenuXDirection = SeControlsLib.XDirection.Right;
-            this.hsSaveNewIndex.ContextMenuYDirection = SeControlsLib.YDirection.Down;
-            this.hsSaveNewIndex.DefaultButtonMode = SeControlsLib.BtnMode.Context;
-            this.hsSaveNewIndex.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.hsSaveNewIndex.FlatAppearance.BorderSize = 0;
-            this.hsSaveNewIndex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hsSaveNewIndex.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hsSaveNewIndex.HoverStyle = SeControlsLib.frameStyle.none;
-            this.hsSaveNewIndex.Image = global::SENotesNET.Properties.Resources.ok_gn_24x;
-            this.hsSaveNewIndex.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.hsSaveNewIndex.ImageHover = global::SENotesNET.Properties.Resources.ok_blue_24x;
-            this.hsSaveNewIndex.ImageToggleOnSelect = false;
-            this.hsSaveNewIndex.Location = new System.Drawing.Point(70, 16);
-            this.hsSaveNewIndex.Marked = false;
-            this.hsSaveNewIndex.MarkedColor = System.Drawing.Color.Teal;
-            this.hsSaveNewIndex.MarkedStyle = SeControlsLib.frameStyle.filled;
-            this.hsSaveNewIndex.MarkedText = "";
-            this.hsSaveNewIndex.MarkMode = false;
-            this.hsSaveNewIndex.Name = "hsSaveNewIndex";
-            this.hsSaveNewIndex.NonMarkedText = "";
-            this.hsSaveNewIndex.Shortcut = BasicClassLibrary.Shortcut.None;
-            this.hsSaveNewIndex.ShowShortcut = false;
-            this.hsSaveNewIndex.Size = new System.Drawing.Size(30, 21);
-            this.hsSaveNewIndex.TabIndex = 15;
-            this.hsSaveNewIndex.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.hsSaveNewIndex.ToolTipActive = false;
-            this.hsSaveNewIndex.ToolTipAutomaticDelay = 500;
-            this.hsSaveNewIndex.ToolTipAutoPopDelay = 5000;
-            this.hsSaveNewIndex.ToolTipBackColor = System.Drawing.SystemColors.Info;
-            this.hsSaveNewIndex.ToolTipFont = new System.Drawing.Font("Comic Sans MS", 9F);
-            this.hsSaveNewIndex.ToolTipFor4ContextMenu = true;
-            this.hsSaveNewIndex.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
-            this.hsSaveNewIndex.ToolTipInitialDelay = 500;
-            this.hsSaveNewIndex.ToolTipIsBallon = false;
-            this.hsSaveNewIndex.ToolTipOwnerDraw = false;
-            this.hsSaveNewIndex.ToolTipReshowDelay = 100;
-            this.hsSaveNewIndex.ToolTipShowAlways = false;
-            this.hsSaveNewIndex.ToolTipText = "";
-            this.hsSaveNewIndex.ToolTipTextColor = System.Drawing.SystemColors.InfoText;
-            this.hsSaveNewIndex.ToolTipTitle = "";
-            this.hsSaveNewIndex.ToolTipTitleColor = System.Drawing.Color.Blue;
-            this.hsSaveNewIndex.UseVisualStyleBackColor = false;
-            this.hsSaveNewIndex.Click += new System.EventHandler(this.hsSaveNewIndex_Click);
-            // 
-            // hsAddSongFile
-            // 
-            this.hsAddSongFile.BackColor = System.Drawing.Color.Transparent;
-            this.hsAddSongFile.BackColorHover = System.Drawing.Color.Transparent;
-            this.hsAddSongFile.BorderColorHover = System.Drawing.Color.Transparent;
-            this.hsAddSongFile.ContextMenuEdges = SeControlsLib.Edge.Center;
-            this.hsAddSongFile.ContextMenuXDirection = SeControlsLib.XDirection.Right;
-            this.hsAddSongFile.ContextMenuYDirection = SeControlsLib.YDirection.Down;
-            this.hsAddSongFile.DefaultButtonMode = SeControlsLib.BtnMode.Context;
-            this.hsAddSongFile.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.hsAddSongFile.FlatAppearance.BorderSize = 0;
-            this.hsAddSongFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hsAddSongFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hsAddSongFile.HoverStyle = SeControlsLib.frameStyle.none;
-            this.hsAddSongFile.Image = global::SENotesNET.Properties.Resources.plus_gn_24x;
-            this.hsAddSongFile.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.hsAddSongFile.ImageHover = global::SENotesNET.Properties.Resources.plus_blue_24x;
-            this.hsAddSongFile.ImageToggleOnSelect = false;
-            this.hsAddSongFile.Location = new System.Drawing.Point(3, 3);
-            this.hsAddSongFile.Marked = false;
-            this.hsAddSongFile.MarkedColor = System.Drawing.Color.Teal;
-            this.hsAddSongFile.MarkedStyle = SeControlsLib.frameStyle.filled;
-            this.hsAddSongFile.MarkedText = "";
-            this.hsAddSongFile.MarkMode = false;
-            this.hsAddSongFile.Name = "hsAddSongFile";
-            this.hsAddSongFile.NonMarkedText = "";
-            this.hsAddSongFile.Shortcut = BasicClassLibrary.Shortcut.None;
-            this.hsAddSongFile.ShowShortcut = false;
-            this.hsAddSongFile.Size = new System.Drawing.Size(88, 37);
-            this.hsAddSongFile.TabIndex = 13;
-            this.hsAddSongFile.Text = "Add file";
-            this.hsAddSongFile.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.hsAddSongFile.ToolTipActive = false;
-            this.hsAddSongFile.ToolTipAutomaticDelay = 500;
-            this.hsAddSongFile.ToolTipAutoPopDelay = 5000;
-            this.hsAddSongFile.ToolTipBackColor = System.Drawing.SystemColors.Info;
-            this.hsAddSongFile.ToolTipFont = new System.Drawing.Font("Comic Sans MS", 9F);
-            this.hsAddSongFile.ToolTipFor4ContextMenu = true;
-            this.hsAddSongFile.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
-            this.hsAddSongFile.ToolTipInitialDelay = 500;
-            this.hsAddSongFile.ToolTipIsBallon = false;
-            this.hsAddSongFile.ToolTipOwnerDraw = false;
-            this.hsAddSongFile.ToolTipReshowDelay = 100;
-            this.hsAddSongFile.ToolTipShowAlways = false;
-            this.hsAddSongFile.ToolTipText = "";
-            this.hsAddSongFile.ToolTipTextColor = System.Drawing.SystemColors.InfoText;
-            this.hsAddSongFile.ToolTipTitle = "";
-            this.hsAddSongFile.ToolTipTitleColor = System.Drawing.Color.Blue;
-            this.hsAddSongFile.UseVisualStyleBackColor = false;
-            this.hsAddSongFile.Click += new System.EventHandler(this.hsNewSong_Click);
+            this.flowLayoutPanel1.Controls.Add(this.hsNewSong);
+            this.flowLayoutPanel1.Controls.Add(this.hsUpdateSong);
+            this.flowLayoutPanel1.Controls.Add(this.hsAddSongFile);
+            this.flowLayoutPanel1.Controls.Add(this.hsRemoveFile);
+            this.flowLayoutPanel1.Controls.Add(this.gbSortIndex);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(807, 45);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // hsNewSong
             // 
@@ -1596,19 +1609,50 @@
             this.hsUpdateSong.UseVisualStyleBackColor = false;
             this.hsUpdateSong.Click += new System.EventHandler(this.hotSpot2_Click);
             // 
-            // tsmiAddNewSong
+            // gbSongGrid
             // 
-            this.tsmiAddNewSong.Image = ((System.Drawing.Image)(resources.GetObject("tsmiAddNewSong.Image")));
-            this.tsmiAddNewSong.Name = "tsmiAddNewSong";
-            this.tsmiAddNewSong.Size = new System.Drawing.Size(151, 22);
-            this.tsmiAddNewSong.Text = "Add new Song";
+            this.gbSongGrid.Controls.Add(this.dgvSongs);
+            this.gbSongGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbSongGrid.Location = new System.Drawing.Point(0, 45);
+            this.gbSongGrid.Name = "gbSongGrid";
+            this.gbSongGrid.Size = new System.Drawing.Size(1042, 729);
+            this.gbSongGrid.TabIndex = 12;
+            this.gbSongGrid.TabStop = false;
+            this.gbSongGrid.Text = "Songs (0)";
             // 
-            // tsmiDeleteSong
+            // dgvSongs
             // 
-            this.tsmiDeleteSong.Image = ((System.Drawing.Image)(resources.GetObject("tsmiDeleteSong.Image")));
-            this.tsmiDeleteSong.Name = "tsmiDeleteSong";
-            this.tsmiDeleteSong.Size = new System.Drawing.Size(151, 22);
-            this.tsmiDeleteSong.Text = "Delete Song";
+            this.dgvSongs.AllowUserToOrderColumns = true;
+            this.dgvSongs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvSongs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSongs.ContextMenuStrip = this.cmsSongs;
+            this.dgvSongs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSongs.Location = new System.Drawing.Point(3, 16);
+            this.dgvSongs.MultiSelect = false;
+            this.dgvSongs.Name = "dgvSongs";
+            this.dgvSongs.ReadOnly = true;
+            this.dgvSongs.RowHeadersVisible = false;
+            this.dgvSongs.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvSongs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSongs.Size = new System.Drawing.Size(1036, 710);
+            this.dgvSongs.TabIndex = 11;
+            this.dgvSongs.SelectionChanged += new System.EventHandler(this.dgvSongs_SelectionChanged);
+            this.dgvSongs.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
+            this.dgvSongs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.hsRefresh);
+            this.flowLayoutPanel2.Controls.Add(this.hsClearRefresh);
+            this.flowLayoutPanel2.Controls.Add(this.gbFilterSongName);
+            this.flowLayoutPanel2.Controls.Add(this.groupBox2);
+            this.flowLayoutPanel2.Controls.Add(this.groupBox1);
+            this.flowLayoutPanel2.Controls.Add(this.ckSortRating);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1042, 45);
+            this.flowLayoutPanel2.TabIndex = 2;
             // 
             // hsRefresh
             // 
@@ -1711,6 +1755,103 @@
             this.hsClearRefresh.ToolTipTitleColor = System.Drawing.Color.Blue;
             this.hsClearRefresh.UseVisualStyleBackColor = false;
             this.hsClearRefresh.Click += new System.EventHandler(this.hsClearRefresh_Click);
+            // 
+            // gbFilterSongName
+            // 
+            this.gbFilterSongName.Controls.Add(this.txtFilterSongName);
+            this.gbFilterSongName.Location = new System.Drawing.Point(208, 3);
+            this.gbFilterSongName.Name = "gbFilterSongName";
+            this.gbFilterSongName.Size = new System.Drawing.Size(171, 42);
+            this.gbFilterSongName.TabIndex = 2;
+            this.gbFilterSongName.TabStop = false;
+            this.gbFilterSongName.Text = "Filter Song Name";
+            // 
+            // txtFilterSongName
+            // 
+            this.txtFilterSongName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFilterSongName.Location = new System.Drawing.Point(3, 16);
+            this.txtFilterSongName.Name = "txtFilterSongName";
+            this.txtFilterSongName.Size = new System.Drawing.Size(165, 20);
+            this.txtFilterSongName.TabIndex = 0;
+            this.txtFilterSongName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFilterSongName_KeyDown);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cbInterpretFilter);
+            this.groupBox2.Location = new System.Drawing.Point(385, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(237, 41);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Filter Interpret";
+            // 
+            // cbInterpretFilter
+            // 
+            this.cbInterpretFilter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbInterpretFilter.FormattingEnabled = true;
+            this.cbInterpretFilter.Location = new System.Drawing.Point(3, 16);
+            this.cbInterpretFilter.Name = "cbInterpretFilter";
+            this.cbInterpretFilter.Size = new System.Drawing.Size(231, 21);
+            this.cbInterpretFilter.TabIndex = 5;
+            this.cbInterpretFilter.SelectedIndexChanged += new System.EventHandler(this.cbInterpretFilter_SelectedIndexChanged);
+            this.cbInterpretFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbInterpretFilter_KeyDown);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbGroupFilter);
+            this.groupBox1.Location = new System.Drawing.Point(628, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(180, 41);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Filter Group";
+            // 
+            // cbGroupFilter
+            // 
+            this.cbGroupFilter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbGroupFilter.FormattingEnabled = true;
+            this.cbGroupFilter.Items.AddRange(new object[] {
+            "Akkordeon",
+            "Piano",
+            "Harp"});
+            this.cbGroupFilter.Location = new System.Drawing.Point(3, 16);
+            this.cbGroupFilter.Name = "cbGroupFilter";
+            this.cbGroupFilter.Size = new System.Drawing.Size(174, 21);
+            this.cbGroupFilter.TabIndex = 8;
+            this.cbGroupFilter.SelectedIndexChanged += new System.EventHandler(this.cbGroupFilter_SelectedIndexChanged);
+            this.cbGroupFilter.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbGroupFilter_KeyDown);
+            // 
+            // ckSortRating
+            // 
+            this.ckSortRating.AutoSize = true;
+            this.ckSortRating.Dock = System.Windows.Forms.DockStyle.Right;
+            this.ckSortRating.Location = new System.Drawing.Point(814, 3);
+            this.ckSortRating.Name = "ckSortRating";
+            this.ckSortRating.Size = new System.Drawing.Size(79, 42);
+            this.ckSortRating.TabIndex = 6;
+            this.ckSortRating.Text = "Sort Rating";
+            this.ckSortRating.UseVisualStyleBackColor = true;
+            this.ckSortRating.CheckedChanged += new System.EventHandler(this.ckSortRating_CheckedChanged);
+            // 
+            // upperPanel
+            // 
+            this.upperPanel.Controls.Add(this.flowLayoutPanel3);
+            this.upperPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.upperPanel.Location = new System.Drawing.Point(0, 0);
+            this.upperPanel.Name = "upperPanel";
+            this.upperPanel.Size = new System.Drawing.Size(1852, 65);
+            this.upperPanel.TabIndex = 8;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.hsClose);
+            this.flowLayoutPanel3.Controls.Add(this.hsShowNotes);
+            this.flowLayoutPanel3.Controls.Add(this.hsMaintain);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(531, 65);
+            this.flowLayoutPanel3.TabIndex = 5;
             // 
             // hsClose
             // 
@@ -1865,11 +2006,22 @@
             this.hsMaintain.UseVisualStyleBackColor = false;
             this.hsMaintain.Click += new System.EventHandler(this.hsMaintain_Click);
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Name = "columnHeader1";
+            // 
+            // ofdDB
+            // 
+            this.ofdDB.FileName = "MyData.DB";
+            this.ofdDB.Filter = "LiteDB|*.db|All|*.*";
+            this.ofdDB.ShowReadOnly = true;
+            this.ofdDB.Title = "Open DB";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1550, 971);
+            this.ClientSize = new System.Drawing.Size(1852, 839);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.upperPanel);
             this.Name = "MainForm";
@@ -1881,7 +2033,6 @@
             this.gbSongName.PerformLayout();
             this.gbFileList.ResumeLayout(false);
             this.cmsSongFiles.ResumeLayout(false);
-            this.pnlFillistUpper.ResumeLayout(false);
             this.gbSortIndex.ResumeLayout(false);
             this.gbSortIndex.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -1889,6 +2040,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.pnlEditSongLower.ResumeLayout(false);
+            this.gbGroup.ResumeLayout(false);
             this.gbOtherAttributes.ResumeLayout(false);
             this.gbOtherAttributes.PerformLayout();
             this.gbOrigin.ResumeLayout(false);
@@ -1906,8 +2058,8 @@
             this.flowLayoutPanel2.PerformLayout();
             this.gbFilterSongName.ResumeLayout(false);
             this.gbFilterSongName.PerformLayout();
-            this.gbFilterInterpret.ResumeLayout(false);
-            this.gbFilterInterpret.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.upperPanel.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1932,7 +2084,6 @@
         private System.Windows.Forms.RadioButton rbIntermediate;
         private System.Windows.Forms.RadioButton rbEasy;
         private System.Windows.Forms.RadioButton rbBeginners;
-        private System.Windows.Forms.Panel pnlFillistUpper;
         private System.Windows.Forms.GroupBox gbInterpret;
         private System.Windows.Forms.ColumnHeader FiIeName;
         private System.Windows.Forms.ColumnHeader FileID;
@@ -1956,8 +2107,6 @@
         private System.Windows.Forms.Label lblSheetHeight;
         private System.Windows.Forms.GroupBox gbFilterSongName;
         private System.Windows.Forms.TextBox txtFilterSongName;
-        private System.Windows.Forms.GroupBox gbFilterInterpret;
-        private System.Windows.Forms.TextBox txtFilterInterpret;
         private System.Windows.Forms.ComboBox cbInstrument;
         private System.Windows.Forms.ComboBox cbInterpret;
         private System.Windows.Forms.ContextMenuStrip cmsSongFiles;
@@ -2017,6 +2166,14 @@
         private SeControlsLib.HotSpot hsInsertVariant;
         private SeControlsLib.HotSpot hsDeleteOrigin;
         private SeControlsLib.HotSpot hsInsertOrigin;
+        private System.Windows.Forms.GroupBox gbGroup;
+        private System.Windows.Forms.ComboBox cbGroup;
+        private SeControlsLib.HotSpot hsDeleteGroup;
+        private SeControlsLib.HotSpot hsInsertGroup;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox cbGroupFilter;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cbInterpretFilter;
     }
 }
 
