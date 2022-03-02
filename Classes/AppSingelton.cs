@@ -1,13 +1,8 @@
 ﻿using BasicClassLibrary;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SENotesNET.Classes
 {
-    
+
     public class AppSingelton
     {
         public bool debugMode = false;

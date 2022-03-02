@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using System.Windows.Forms;
-namespace SENotes5.Classes
+namespace SENotesNET.Classes
 {
     public class SystemSoundClass
     {

@@ -1,6 +1,7 @@
 ﻿using BasicClassLibrary;
 using Enums;
 using SENotesNET.Classes;
+using SharedStorages;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -26,6 +27,53 @@ namespace SENotesNET
         Notes ActData;
         DBFiles ActFileData;
         eDBSaveState DBSaveState = eDBSaveState.insert;
+
+        [Serializable]
+        class MerkeWerte
+        {
+            public Guid LastSongID;
+            public string InterpretFilter;
+            public string GroupFilter;
+        };
+
+        private void LoadUserDesign()
+        {
+            try
+            {
+                SharedStorage ss = new SharedStorage();
+                ss.SharedFolder = Application.LocalUserAppDataPath;
+                ss.StorageName = $@"{this.Name}";
+                ss.DestroyWhenDisposed = false;
+                var mw2 = (MerkeWerte)ss["ComboBoxIds"];
+                if (mw2 != null)
+                {
+                    //mw = mw2;
+                    LastSongID = mw2.LastSongID;
+                    cbInterpretFilter.Text = mw2.InterpretFilter;
+                    cbGroupFilter.Text = mw2.GroupFilter;
+                }
+            }
+            catch (Exception ex)
+            {
+               // SendMessageClass.Instance.SendAllMessages($@"{ex.Message}", $@"{this.Name}->LoadUserDesign()", eLevel.error);
+            }
+        }
+
+        public void SaveUserDesign()
+        {
+            SharedStorage ss = new SharedStorage();
+            ss.DestroyWhenDisposed = false;
+            var mw = new MerkeWerte();
+            if (ActData != null)
+            {
+                mw.LastSongID = ActData.Id;
+                mw.InterpretFilter = cbInterpretFilter.Text;
+                mw.GroupFilter = cbGroupFilter.Text;
+            }
+            ss.SharedFolder = Application.LocalUserAppDataPath;
+            ss.StorageName = $@"{this.Name}";
+            ss.AddOrUpdate("ComboBoxIds", mw);
+        }
 
         void InfoRaised(object sender, MessageEventArgs k)
         {
@@ -299,6 +347,33 @@ namespace SENotesNET
                     txtSortIndex.Enabled = (DBSaveState != eDBSaveState.insert);
                 }
             }
+        }
+
+        Guid LastSongID;
+
+        public bool SelectSongID(Guid SongID)
+        {
+
+            bs.Position = 0;
+            while (bs.Position < bs.Count - 1)
+            {
+                DataRowView ob = (DataRowView)bs.Current;
+                if (ob != null)
+                {
+                    object data = ob.Row["colData"];
+                    if (data.GetType().ToString() != "System.DBNull")
+                    {
+                        ActData = (Notes)data;
+                        if(ActData.Id == SongID)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                bs.Position++;
+            }
+            bs.Position = 0;
+            return false;
         }
 
         public void ClearEdit()
@@ -852,10 +927,14 @@ namespace SENotesNET
             PfadClass.Instance().Deserialize(cfile);
             hsRemoveFile.Enabled = false;
             ckSortRating.Checked = true;
+            
             UpdateUI();
             GetInterpretFilterData();
             GetGroupFilterData();
+            LoadUserDesign();
             RefreshData();
+            
+            SelectSongID(LastSongID);
             dgvSongs.Select();
         }
 
@@ -1292,6 +1371,7 @@ namespace SENotesNET
 
         private void hsClose_Click_1(object sender, EventArgs e)
         {
+            SaveUserDesign();
             Close();
         }
 

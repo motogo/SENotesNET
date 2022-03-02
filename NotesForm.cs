@@ -1,5 +1,5 @@
 ﻿using BasicClassLibrary;
-using SENotes5.Classes;
+using SENotesNET.Classes;
 using System;
 using System.Collections.Generic;
 using System.IO;

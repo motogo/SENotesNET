@@ -62,12 +62,12 @@ namespace SENotesNET
             picture.Dispose();
         }
 
-        public void RefreshPicture(PictureClass prev)
+        public void RefreshPicture(PictureClass prev, int leftOffset)
         {
             if (prev != null)
-                picture.Left = prev.picture.Left + prev.picture.Width + 4;
+                picture.Left = leftOffset + prev.picture.Left + prev.picture.Width + 4;
             else
-                picture.Left = 0;
+                picture.Left = leftOffset;
             picture.Invalidate();
         }
         public void SetVisible(bool vis)
@@ -178,12 +178,27 @@ namespace SENotesNET
         {
             PictureClass prev = null;
             int n = 0;
+            int leftoffset = 0;
+           
+            if ((pictures.Count < 4)&&(pictures.Count > 0))
+            {
+                int wd = 0;
+                foreach (var pc in pictures)
+                {
+                    wd += pc.Width;
+                }
+               
+               leftoffset = (Parent.Width - wd) / 2;
+                
+            }
+
             foreach (var pc in pictures)
             {
                 
                 if ((n >= start) && (n <= end))
                 {
-                    pc.RefreshPicture(prev);
+                    if(n == start) pc.RefreshPicture(prev, leftoffset);
+                    else pc.RefreshPicture(prev, 0);
                     pc.SetVisible(true);
                     prev = pc;
                 }
